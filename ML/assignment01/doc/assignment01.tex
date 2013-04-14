@@ -1,0 +1,88 @@
+\documentclass{article}[11pt]
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\graphicspath{{../fig/}} 								% Path to a folder where all pictures are located
+
+\usepackage{fullpage}
+
+\title{Machine Learning -- Assignment 1}
+\author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de} \\ \texttt{6411529}}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection{}
+Class 1 is a set of 2-dimensional vectors uniformly distributed on $[0, 1) \times [0, 1) \subset \mathbb{R}^2$.
+While, Class 2 distributes on $[1, 2) \times [0, 1) \subset \mathbb{R}^2$.
+
+\subsection{}
+Training data.
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex1_train}
+\end{center}
+
+\subsection{}
+Test data.
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex1_test}
+\end{center}
+
+\subsection{}
+Please find the code in \texttt{knnClassify.m}.
+
+\subsection{}
+Please find the code in \texttt{loss01.m}.
+
+\subsection{}
+The training and test error vary as using different k.
+
+\begin{center}
+\begin{tabular}[h]{r|r|r}
+  \hline
+  k & Training Error & Test Error \\ \hline
+  1 & 0 & 0.045 \\ \hline
+  3 & 0.017 & 0.045 \\ \hline
+  5 & 0.017 & 0.045 \\ \hline
+  7 & 0 & 0.030 \\ \hline
+  10 & 0.017 & 0.030 \\ \hline
+  15 & 0 & 0.010 \\ \hline
+  20 & 0 & 0.010 \\ \hline
+\end{tabular}
+\end{center}
+
+\subsection{}
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex1_err}
+\end{center}
+
+\subsection{}
+Prediction reaches its best performance at k = 15. The prediction result is
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex1_result}
+\end{center}
+
+\subsection{}
+Increasing the size of the training set can achieve better and more robust prediction performance.
+
+\subsection{}
+Unbalanced classes (unbalanced training set and banlanced test set) can decrease the performance.
+
+\section{}
+Classify digit 2 and 3.
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex2_err1}
+\end{center}
+
+\section{}
+Classify digit 3 and 8.
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex2_err2}
+\end{center}
+
+\end{document}
+
