@@ -97,4 +97,20 @@ While, the time complexity of predicting one sample using kNN regression is $\ma
 The space complexity of predicting one sample using LLS method is $\mathcal{O}(d)$.
 While, the space complexity of predicting one sample using kNN regression is $\mathcal{O}(nd)$.
 
+\section{}
+First, $f(x) = x^2, x\in \mathbb{R}$ is convex. Because
+\begin{align*}
+  tx^2 + (1-t)y^2 - (tx + (1-t)y)^2 &= tx^2 - t^2x^2 + (1-t)y^2 - (1-t)^2y^2 -2t(1-t)xy &\\
+                                    &= t(1-t)(x-y)^2 &\\
+                                    &\ge 0 & \forall x,y \in \mathbb{R}, t \in [0,1]
+\end{align*}
+
+Therefore
+\begin{align*}
+ || Y - \mathbf{X}(t\mathbf{w_1}+(1-t)\mathbf{w_2}) ||^2 &= || t(Y - \mathbf{X}\mathbf{w_1}) + (1-t)(Y-\mathbf{X}\mathbf{w_2}) ||^2 &\\
+                              &\le t ||Y - \mathbf{X}\mathbf{w_2}||^2 + (1-t) ||Y - \mathbf{X}\mathbf{w_2}||^2 & \forall \mathbf{w_1},\mathbf{w_2} \in \mathbb{R}^d, t \in [0,1]
+\end{align*}
+
+Thus, $||Y-\mathbf{X}\mathbf{w}||^2$ is convex. $\square$
+
 \end{document}
