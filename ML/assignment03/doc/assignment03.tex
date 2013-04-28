@@ -1,0 +1,100 @@
+\documentclass{article}[11pt]
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\graphicspath{{../fig/}} 								% Path to a folder where all pictures are located
+
+\usepackage{fullpage}
+
+\title{Machine Learning -- Assignment 3}
+\author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de} \\ \texttt{6411529}}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection{}
+\texttt{genLinData.m} generates random linear data with noise. \texttt{X} is a set of random numbers that is uniformly distributed on $[-2, 1]$. \texttt{Y} is a set of numbers that obeys $Y = -0.7X + 1 + noise$, where the noise is normally distributed with variance of \texttt{sigma};
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex01_1};
+\end{center}
+
+\subsection{}
+Please find the implementation in file \texttt{ex01.m}.
+
+\subsection{}
+The fitted line is shown below.
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex01_2};
+\end{center}
+
+\subsection{}
+With test data.
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex01_3};
+\end{center}
+
+\subsection{}
+The average error of different sigma is shown below.
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex01_4};
+\end{center}
+
+\subsection{}
+With the extreme outlier the error increases saliently.
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex01_5};
+\end{center}
+
+\section{}
+\subsection{}
+Using Linear Least Square Regression, the average error is $0.975$.
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex02_1};
+\end{center}
+
+\subsection{}
+Using Linear Least Square Regression with polynomial basis functions, the average error is $0.330$
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex02_2};
+\end{center}
+
+\subsection{}
+The class of functions that we can learn with these basis function is:
+\[ f(x) = \sum_{i=1}^{15} w_i x^i, w_i \in \mathbb{R} \]
+namely the polynomial functions without zero degree coefficient and the degree of which is not more than 15.
+
+\subsection{}
+The predicted lines of Ridge Regression are shown below:
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex02_3};
+\end{center}
+
+\subsection{}
+Prediction error with different lambda are shown below:
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{ex02_4};
+\end{center}
+
+\section{}
+Suppose the training data are $n$ vectors in $d$-dimensional space.
+
+The time complexity of predicting one sample using LLS method is $\mathcal{O}(d)$.
+While, the time complexity of predicting one sample using kNN regression is $\mathcal{O}(nd)$.
+
+The space complexity of predicting one sample using LLS method is $\mathcal{O}(d)$.
+While, the space complexity of predicting one sample using kNN regression is $\mathcal{O}(nd)$.
+
+\end{document}
