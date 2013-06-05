@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+
+\title{Assignment \#3 -- Introduction to Robotics}
+\author{
+Luisa Zintgraf \texttt{6027303} \\
+Weipeng He \texttt{6411529} \\
+Philipp Ruppel \texttt{6248024}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\[
+  T(t) = \begin{pmatrix}
+    cos(\theta_0 + \omega_z t) & -sin(\theta_0 + \omega_z t) & 0 & x_0 \\
+    sin(\theta_0 + \omega_z t) & cos(\theta_0 + \omega_z t) & 0 & y_0 \\
+    0 & 0 & -1 & z_0 + \frac{h}{2\pi}\omega_z t \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+
+\section{}
+\begin{center}
+  \begin{tabular}[h]{c|cccc}
+    \hline
+    Joint & $\theta$ & $d$ & $a$ & $\alpha$ \\ \hline
+    1 & $\theta_1$ & $0$ & $0$ & $0$ \\
+    2 & $\theta_2$ & $0$ & $0$ & $-\frac{\pi}{2}$ \\
+    3 & $\theta_3$ & $0$ & $l_a$ & $0$ \\ \hline
+  \end{tabular}
+\end{center}
+
+\section{}
+\subsection{}
+\[
+  {}^{base}T_{object} = ({}^{camera}T_{base})^{-1} \cdot {}^{camera}T_{object} =
+  \begin{pmatrix}
+    1 & 0 & 0 & 30 \\
+    0 & 1 & 0 & 15 \\
+    0 & 0 & 1 & 1 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+
+\subsection{}
+\[
+  {}^{base}T_{tool} = 
+  \begin{pmatrix}
+    1 & 0 & 0 & 30 \\
+    0 & -1 & 0 & 15 \\
+    0 & 0 & -1 & 1 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  \text{OR}
+  \begin{pmatrix}
+    -1 & 0 & 0 & 30 \\
+    0 & 1 & 0 & 15 \\
+    0 & 0 & -1 & 1 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+
+\section{}
+The positioning accuracy depends on the measurement of the joint structure (relative position of joints or say the constants in DH parameters) and the control accuracy of the variables of DH parameters.
+
+The length of joints can't be 100\% accurate. Addtional, the varaibles can't be controlled to any value that demands. 
+
+Thus, these measurement error and control resolution will limit the positioning accuracy.
+
+\end{document}

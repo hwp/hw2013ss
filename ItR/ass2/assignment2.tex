@@ -1,0 +1,100 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+
+\title{Assignment \#2 -- Introduction to Robotics}
+\author{
+Luisa Zintgraf \texttt{6027303} \\
+Weipeng He \texttt{6411529} \\
+Philipp Ruppel \texttt{6248024}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection{}
+For each joint, the transformation is:
+\[
+  ^{i-1}A_{i} = 
+  \begin{pmatrix}
+    C_i & -S_i & 0 & a_iC_i \\
+    S_i & C_i & 0 & a_iS_i \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+where $C_i = cos(\theta_i)$ and $S_i = sin(\theta_i)$.
+
+\begin{align*}
+  ^{0}A_{1} {}^{1}A_{2} {}^{2}A_{3} &= 
+  \begin{pmatrix}
+    C_1C_2 - S_1S_2 & -S_1C_2 - C_1S_2 & 0 & a_2C_1C_2 - a_2S_1S_2 + a_1C_1 \\
+    C_1S_2 + S_1C_2 & -S_1S_2 + C_1C_2 & 0 & a_2S_1C_2 + a_2C_1S_2 + a_1S_1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  {}^{2}A_{3} \\
+  &= 
+  \begin{pmatrix}
+    C_{1+2} & -S_{1+2} & 0 & a_1C_1 + a_2C_{1+2} \\
+    S_{1+2} & C_{1+2} & 0 & a_1S_1 + a_2S_{1+2} \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  {}^{2}A_{3}  \\
+  &= 
+  \begin{pmatrix}
+    C_{1+2+3} & -S_{1+2+3} & 0 & a_1C_1 + a_2C_{1+2} + a_3C_{1+2+3} \\
+    S_{1+2+3} & C_{1+2+3} & 0 & a_1S_1 + a_2S_{1+2} + a_3S_{1+2+3} \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\end{align*}
+where $C_{1+2} = cos(\theta_1 + \theta_2)$, $C_{1+2+3} = cos(\theta_1 + \theta_2 + \theta_3)$, $S_{1+2} = sin(\theta_1 + \theta_2)$ and $S_{1+2+3} = sin(\theta_1 + \theta_2 + \theta_3)$. 
+
+We have $\theta_1 + \theta_2 + \theta_3 = \pi$, therefore $C_{1+2+3} = -1$, $S_{1+2+3} = 0$, $C_{1+2} = -C_3$ and $S_{1+2} = S_3$. Thus,
+\[
+  ^0T_3 = {}^{0}A_{1} {}^{1}A_{2} {}^{2}A_{3} =
+  \begin{pmatrix}
+    -1 & 0 & 0 & a_1C_1 - a_2C_3 - a_3 \\
+    0 & -1 & 0 & a_1S_1 + a_2S_3 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+
+\subsection{}
+We have the homogeneous tranformations as they are said.
+\[
+  {}^{-1}A_{0} = 
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & C_0 & -S_0 & 0 \\
+    0 & S_0 & C_0 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+and
+\[
+  {}^{3}A_{4} = 
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & C_4 & -S_4 & 0 \\
+    0 & S_4 & C_4 & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+
+Then, the whole transformation will be:
+\[
+  T = {}^{-1}A_{0} {}^{0}A_{1} {}^{1}A_{2} {}^{2}A_{3} {}^{3}A_{4}
+\]
+
+\end{document}
