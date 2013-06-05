@@ -1,0 +1,146 @@
+\documentclass{article}[11pt]
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\graphicspath{{../fig/}} 								% Path to a folder where all pictures are located
+
+\usepackage{fullpage}
+
+\title{Machine Learning -- Assignment 5}
+\author{Weipeng He \texttt{6411529} \\ \texttt{2he@informatik.uni-hamburg.de}  \\ with Jyothi Yalpi and Sathya Narayanan}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+By substituting $x_3$ with $x_3=-x'_3$, we get
+\begin{align*}
+  \text{minimize} \quad & x_1 - 2x_2 - 4x'_3 \\
+    \text{subject to} \quad & x_1 - x_2 \le -1 \\ 
+  & 3x_1 - 2x'_3 \le -1 \\ 
+  & -2x_1 + 5x'_3 \le -4 \\ 
+    \text{and} \quad & x_1, x_2, x'_3 \le 0
+\end{align*}
+Thus the standard form is
+\[
+  A = \begin{pmatrix}
+    1 & -1 & 0 \\
+    3 & 0 & -2 \\
+    -2 & 0 & 5 
+  \end{pmatrix}, \quad
+  \mathbf{b} = \begin{pmatrix} -1 \\ -1 \\ -4 \end{pmatrix}, \quad
+  \mathbf{c} = \begin{pmatrix} 1 \\ -2 \\ -4 \end{pmatrix}
+\]
+
+\section{}
+\[
+  L(\mathbf{x}, \boldsymbol{\lambda}_1, \boldsymbol{\lambda}_2) = \mathbf{c}^T\mathbf{x} + \boldsymbol{\lambda}_1^T (A\mathbf{x} - \mathbf{b}) + \boldsymbol{\lambda}_2^T \mathbf{x}
+\]
+
+\subsection{}
+\begin{align*}
+  \nabla_{\mathbf{x}} L &= 0 \\
+  \mathbf{c} + A^T \boldsymbol{\lambda}_1 + \boldsymbol{\lambda}_2 &= 0 \\
+  \boldsymbol{\lambda}_2 &= -\mathbf{c} - A^T \boldsymbol{\lambda}_1
+\end{align*}
+
+\subsection{}
+By subsituting $\boldsymbol{\lambda}_2$, we get
+\[ L(\mathbf{x}, \boldsymbol{\lambda}_1, \boldsymbol{\lambda}_2) = -\boldsymbol{\lambda}_1^T \mathbf{b} \]
+
+The dual problem is
+\begin{align*}
+  \text{maximize} \quad & -\mathbf{b}^T \boldsymbol{\lambda}_1\\
+    \text{subject to} \quad & \boldsymbol{\lambda}_1 \ge \mathbf{0} \\ 
+  & A^T \boldsymbol{\lambda}_1 + \mathbf{c} \le \mathbf{0}
+\end{align*}
+
+\subsection{}
+Form the Lagrangian:
+\[
+  L(\boldsymbol{\lambda}_1, \mathbf{x}, \boldsymbol{\lambda}_2) = -\mathbf{b}^T\boldsymbol{\lambda}_1 + \mathbf{x}^T (A^T \boldsymbol{\lambda}_1 + \mathbf{c}) + \boldsymbol{\lambda}_2^T \boldsymbol{\lambda}_1
+\]
+where $\mathbf{x}, \boldsymbol{\lambda}_2$ are the vectors of Lagrange multipliers.
+
+\begin{align*}
+  \nabla_{\boldsymbol{\lambda}_1} L &= 0 \\
+  -\mathbf{b} + A \mathbf{x} + \boldsymbol{\lambda}_2 &= 0 \\
+  \boldsymbol{\lambda}_2 &= \mathbf{b} - A \mathbf{x}
+\end{align*}
+
+By substituting $\boldsymbol{\lambda}_2$, we get
+\[
+  L(\boldsymbol{\lambda}_1, \mathbf{x}, \boldsymbol{\lambda}_2) = \mathbf{x}^T \mathbf{c}
+\]
+
+The dual of the dual problem is
+\begin{align*}
+  \text{minimize} \quad & \mathbf{c}^T \mathbf{x}\\
+    \text{subject to} \quad & \mathbf{x} \le \mathbf{0} \\ 
+  & \mathbf{b} - A \mathbf{x} \ge \mathbf{0}
+\end{align*}
+which is the primal program.
+
+\section{}
+Form the Lagrangian:
+\[ L(\mathbf{w}, b, \boldsymbol{\alpha}) = \frac{1}{2} \lVert \mathbf{w} \rVert^2 - \sum_{i=1}^{m} \alpha_i (y_i (\mathbf{w}^T \mathbf{x}_i - b) - 1) \]
+where $\boldsymbol{\alpha}$ is the Lagrangian multiplier.
+
+The dual function is
+\[ g(\boldsymbol{\alpha}) = \inf_{\mathbf{w}, b} L(\mathbf{w}, b, \boldsymbol{\alpha}) \]
+
+To reach the infimum, we need to hold the saddle point condition:
+\begin{align*}
+  \frac{\partial}{\partial b}L &= 0 \\
+  \nabla_{\mathbf{w}} L &= 0
+\end{align*}
+that is
+\begin{align*}
+   \sum_{i=1}^{m} \alpha_i y_i &= 0 \\
+   \mathbf{w} - \sum_{i=1}^{m} \alpha_i y_i \mathbf{x}_i &= 0
+\end{align*}
+
+Substitute $\mathbf{w}$ with $\mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x}_i$:
+\begin{align*}
+  g(\boldsymbol{\alpha}) &= L(\sum_{i=1}^{m} \alpha_i y_i \mathbf{x}_i, b, \boldsymbol{\alpha}) \\
+  &= \frac{1}{2} \lVert \sum_{i=1}^{m} \alpha_i y_i \mathbf{x}_i \rVert^2 - \sum_{i=1}^{m} \alpha_i (y_i ( (\sum_{j=1}^{m} \alpha_j y_j \mathbf{x}_j^T) \mathbf{x}_i - b) - 1) \\
+  &= \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + (\sum_{i=1}^{m} \alpha_i y_i) b + \sum_{i=1}^{m} \alpha_i \\
+  &= \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j
+\end{align*}
+
+Therefore, the dual problem is
+\begin{align*}
+  \text{maximize} \quad & \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j \\
+    \text{subject to} \quad & \alpha_i \ge 0, i = 1, \dots, m \\ 
+  & \sum_{i=1}^{m} \alpha_i y_i = 0
+\end{align*}
+\section{}
+Let $\mathbf{w}^*, b^*$ be the solution of the following problem (*):
+\begin{align*}
+  \min_{\mathbf{w}, b} ~& \frac{1}{2} \lVert \mathbf{w} \rVert^2 \\
+  & y_i(\mathbf{w}^T \mathbf{x}_i - b) \ge 1,~ i = 1, \dots, m
+\end{align*}
+and $\mathbf{u}^*, c^*$ be the solution of the following problem (**):
+\begin{align*}
+  \min_{\mathbf{u}, c} ~& \frac{1}{2} \lVert \mathbf{u} \rVert^2 \\
+  & y_i(\mathbf{u}^T \mathbf{x}_i - c) \ge \gamma,~ i = 1, \dots, m
+\end{align*}
+where $\gamma > 0$.
+
+We can write problem (**) in another form:
+\begin{align*}
+  \min_{\mathbf{u}, c} ~& \frac{1}{2} \lVert \frac{1}{\gamma}\mathbf{u} \rVert^2 \\
+  & y_i(\frac{1}{\gamma}\mathbf{u}^T \mathbf{x}_i - \frac{c}{\gamma}) \ge 1,~ i = 1, \dots, m
+\end{align*}
+
+Therefore, we have
+\[ \frac{1}{\gamma}\mathbf{u}^* = \mathbf{w}^* ~\text{and}~ \frac{c^*}{\gamma} = b^* \]
+and the hyperplane of problem (*), which is ${\mathbf{w}^*}^T \mathbf{x} - b^* = 0$, is the same as that of problem (**), which is  ${\mathbf{u}^*}^T \mathbf{x} - c^* = 0$.
+
+\section{}
+Please find the solution in \texttt{ex5.m} and \texttt{SVM\_classifier.m}.
+
+\end{document}
