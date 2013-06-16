@@ -6,12 +6,12 @@ label = double(train_label(ll));
 k = 4;
 sigma = 1000;
 
-w = buildKnnGraph(data, 20);
+w = buildKnnGraph(feature, 20);
 w(w~=0) = exp(-w(w~=0) .^ 2 / (2 * sigma ^ 2));
 d = diag(sum(w));
 
 l = d - w;
-[v, d] = eig(l, k, 'sm');
+[v, d] = eigs(l, k, 'sm');
 
 figure;
 scatter3(v(:,2), v(:,3), v(:,4));
@@ -24,12 +24,12 @@ opts = statset('Display','final');
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
 
-printf('Unnormalized spectral clustering\n');
-printf('Evaluation with labels : %f\n', e1);
-printf('Evaluation without labels : %f\n', e2);
+fprintf(1, 'Unnormalized spectral clustering\n');
+fprintf(1, 'Evaluation with labels : %f\n', e1);
+fprintf(1, 'Evaluation without labels : %f\n', e2);
 
 ln = sqrt(d) * l * sqrt(d);
-[v, d] = eig(ln, k, 'sm');
+[v, d] = eigs(ln, k, 'sm');
 
 figure;
 scatter3(v(:,2), v(:,3), v(:,4));
@@ -42,7 +42,7 @@ opts = statset('Display','final');
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
 
-printf('Normalized spectral clustering\n');
-printf('Evaluation with labels : %f\n', e1);
-printf('Evaluation without labels : %f\n', e2);
+fprintf(1, 'Normalized spectral clustering\n');
+fprintf(1, 'Evaluation with labels : %f\n', e1);
+fprintf(1, 'Evaluation without labels : %f\n', e2);
 

@@ -10,9 +10,9 @@ opts = statset('Display','final');
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
 
-printf('k-means with Euclidean distance\n');
-printf('Evaluation with labels : %f\n', e1);
-printf('Evaluation without labels : %f\n', e2);
+fprintf(1, 'k-means with Euclidean distance\n');
+fprintf(1, 'Evaluation with labels : %f\n', e1);
+fprintf(1, 'Evaluation without labels : %f\n', e2);
 
 [cidx, ctrs] = kmeans(feature, 4, 'Distance', 'cityblock', ...
     'Replicates', 5, 'Options', opts);
@@ -20,7 +20,17 @@ printf('Evaluation without labels : %f\n', e2);
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
 
-printf('k-means with cityblock distance\n');
-printf('Evaluation with labels : %f\n', e1);
-printf('Evaluation without labels : %f\n', e2);
+fprintf(1, 'k-means with cityblock distance\n');
+fprintf(1, 'Evaluation with labels : %f\n', e1);
+fprintf(1, 'Evaluation without labels : %f\n', e2);
+
+[cidx, ctrs] = kmeans(feature, 4, 'Distance', 'cosine', ...
+    'Replicates', 5, 'Options', opts);
+
+e1 = evaluateLabeled(cidx, label);
+e2 = dunnindex(cidx, feature);
+
+fprintf(1, 'k-means with cosine distance\n');
+fprintf(1, 'Evaluation with labels : %f\n', e1);
+fprintf(1, 'Evaluation without labels : %f\n', e2);
 
