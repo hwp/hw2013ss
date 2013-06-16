@@ -5,7 +5,7 @@ label = double(train_label(ll));
 
 opts = statset('Display','final');
 [cidx, ctrs] = kmeans(feature, 4, 'Distance', 'sqEuclidean', ...
-    'Replicates', 5, 'Options', opts);
+    'Replicates', 10, 'Options', opts);
 
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
@@ -15,7 +15,7 @@ fprintf(1, 'Evaluation with labels : %f\n', e1);
 fprintf(1, 'Evaluation without labels : %f\n', e2);
 
 [cidx, ctrs] = kmeans(feature, 4, 'Distance', 'cityblock', ...
-    'Replicates', 5, 'Options', opts);
+    'Replicates', 10, 'Options', opts);
 
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
@@ -25,7 +25,7 @@ fprintf(1, 'Evaluation with labels : %f\n', e1);
 fprintf(1, 'Evaluation without labels : %f\n', e2);
 
 [cidx, ctrs] = kmeans(feature, 4, 'Distance', 'cosine', ...
-    'Replicates', 5, 'Options', opts);
+    'Replicates', 10, 'Options', opts);
 
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);

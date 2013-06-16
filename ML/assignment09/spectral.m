@@ -11,15 +11,15 @@ w(w~=0) = exp(-w(w~=0) .^ 2 / (2 * sigma ^ 2));
 d = diag(sum(w));
 
 l = d - w;
-[v, d] = eigs(l, k, 'sm');
+[v, lambda] = eigs(l, k, 'sm');
 
 figure;
 scatter3(v(:,2), v(:,3), v(:,4));
-print('fig/spec.png');
+print -dpng 'fig/spec.png'
 
 opts = statset('Display','final');
 [cidx, ctrs] = kmeans(v, 4, 'Distance', 'sqEuclidean', ...
-    'Replicates', 5, 'Options', opts);
+    'Replicates', 10, 'Options', opts);
 
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
@@ -29,15 +29,15 @@ fprintf(1, 'Evaluation with labels : %f\n', e1);
 fprintf(1, 'Evaluation without labels : %f\n', e2);
 
 ln = sqrt(d) * l * sqrt(d);
-[v, d] = eigs(ln, k, 'sm');
+[v, lambda] = eigs(ln, k, 'sm');
 
 figure;
 scatter3(v(:,2), v(:,3), v(:,4));
-print('fig/normspec.png');
+print -dpng 'fig/normspec.png'
 
 opts = statset('Display','final');
 [cidx, ctrs] = kmeans(v, 4, 'Distance', 'sqEuclidean', ...
-    'Replicates', 5, 'Options', opts);
+    'Replicates', 10, 'Options', opts);
 
 e1 = evaluateLabeled(cidx, label);
 e2 = dunnindex(cidx, feature);
