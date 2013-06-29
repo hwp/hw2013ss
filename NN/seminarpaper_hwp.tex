@@ -18,6 +18,10 @@
    postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
 \tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
 
+\newcommand{\inputTikZ}[1]{%
+  \input{data/#1.tikz}%
+}
+
 \newcommand{\TODO}[1]{\emph{\small{{\bf TODO: } #1}}}
 
 \newcommand{\etal}{\textit{et al.}}
@@ -33,7 +37,7 @@
 \maketitle
 
 \section*{Abstract}
-\TODO{abtract}
+\TODO{abstract}
 
 %\tableofcontents
 %\pagenumbering{arabic}
@@ -47,62 +51,7 @@ Multisensory integration is a process which is carried out by organisms to combi
 Multisensory integration is seen as commonly exists in animals. For example, humans use both visual and haptic information to perceive the properties (size, position, \etc) of an object\cite{ernst_humans_2002}. Some mammals integrate visual and vestibular information to estimate self-motion\cite{fetsch_dynamic_2009}.
 
 \begin{figure}[htpb]
-  \centering
-  \begin{tikzpicture}[scale=.7, transform shape]
-    %\tikzstyle{every node} = [rectangle, fill=gray!30]
-    \tikzstyle{inout} = [rounded corners=3, fill=blue!30, align=center]
-    \tikzstyle{inter} = [rounded corners=3, fill=gray!30, align=center]
-    \tikzstyle{group} = [rectangle, draw, dashed, color=blue, thick]
-    \tikzstyle{sep} = [dotted, thick, color=gray!60]
-
-    \node[inout] (s1) at (0, 0) {Stimuli};
-    \node[inout] (s2) at (4, 0) {Stimuli};
-    \node[inter] (p1) at (0, -1.5) {Primary neurons};
-    \node[inter] (p2) at (4, -1.5) {Primary neurons};
-    \node[inter] (i) at (2, -3) {Multisensory neurons};
-    \node[inout] (r) at (2, -4.5) {Behavioral response};
-
-    \node[group, fit=(s1) (p1), color=blue!40] (m1) {};
-    \node at (m1.north) [above] {Modality 1};
-    \node[group, fit=(s2) (p2), color=blue!40] (m2) {};
-    \node at (m2.north) [above] {Modality 2};
-
-    \foreach \from/\to in {s1/p1, s2/p2, p1/i, p2/i, i/r}
-    \draw [->] (\from) -- (\to);
-
-    \node at (-1.5, 1.2) {(a)};
-    \draw[sep] (6, 1) -- (6, -5);
-
-    \begin{scope}[shift={(8.5,0)}]
-    \node[inout] (ns) at (0, 0) {Multisensory Stimuli};
-    \node[inout] (nr) at (0, -3) {Firing rates of \\multisensory neuron(s)};
-    \draw [vecArrow] (ns) -- (nr);
-    
-    \node[rounded corners=3, fill=red!30, align=center, dotted] (nb) at (0, -4.5) {\textbf{?}};
-    \draw[->, dotted, color=red] (nr) -- (nb);
-
-    \node[group, fit=(ns) (nr)] (n) {};
-    \node at (n.north) [above] {Neurophysiology};
-
-
-    \node at (-2, 1.2) {(b)};
-    \draw[sep] (2.5, 1) -- (2.5, -5);
-    \end{scope}
-
-    \begin{scope}[shift={(13.5,0)}]
-    \node[inout] (ps) at (0, 0) {Multisensory Stimuli};
-    \node[inout] (pr) at (0, -4.5) {Probability distribution\\of combined signal};
-    \draw [vecArrow] (ps) -- (pr);
-
-    \node[group, fit=(ps) (pr)] (p) {};
-    \node at (p.north) [above] {Psychophysics};
-
-    \node at (-2, 1.2) {(c)};
-    \end{scope}
-
-    \draw[<->, dotted, color=red] (nb) -- (pr);
-    %\draw [->, thick, color=red, dashed] (nr.south) -- +(0,-1) --  node[midway, below] {\textbf{?}} (pr.west) ;
-  \end{tikzpicture}
+  \centering \inputTikZ{flow}
   \caption{Workflow of multisensory perception in animals and analysis levels of different study.}
   \label{fig:general}
 \end{figure}
@@ -127,7 +76,7 @@ The purpose of this paper is to review recent research into various approaches o
 The study of multisensory integration can be viewed as solving a mathematical problem, in which the known information is precisely given in mathematical form and the question is to find out the optimal computational model (called ideal observer model). Such normative study usually involves hypothetical and rigorous statistic inference.
 
 \subsection{Optimal cue integration}
-One of the successful ideal observer models is called optimal cue integration\cite{geisler_contributions_2011}. This model is popularly used in both uni-modal cue integration (especially in computational vision research) and cross-modal cue integration.
+One of the successful ideal observer models is called optimal cue integration\cite{geisler_contributions_2011}. This model is popularly used in both unimodal cue integration (especially in computational vision research) and cross-modal cue integration.
 
 The set-up of the model is that, the system get multiple cues ($\hat{S}_i, i=1 \dots n$) with different reliability ($g_i$), which is decided by the variance($\sigma_i$) as input. Then the best estimate ($\hat{S}_{opt}$) is given by the weighted sum of all cues, where the weights ($w_i$) are proportional to the reliability of the corresponding cues:
 \begin{gather}
