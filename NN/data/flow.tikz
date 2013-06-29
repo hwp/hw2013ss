@@ -23,31 +23,31 @@
     \node at (-1.5, 1.2) {(a)};
     \draw[sep] (6, 1) -- (6, -5);
 
-    \begin{scope}[shift={(8.5,0)}]
+    \begin{scope}[shift={(13.5,0)}]
     \node[inout] (ns) at (0, 0) {Multisensory Stimuli};
     \node[inout] (nr) at (0, -3) {Firing rates of \\multisensory neuron(s)};
     \draw [vecArrow] (ns) -- (nr);
     
-    \node[rounded corners=3, fill=red!30, align=center, dotted] (nb) at (0, -4.5) {\textbf{?}};
+    \node[rounded corners=3, fill=red!30, align=center, dotted] (nb) at (0, -4.5) {\Large\textbf{?}};
     \draw[->, dotted, color=red] (nr) -- (nb);
 
     \node[group, fit=(ns) (nr)] (n) {};
     \node at (n.north) [above] {Neurophysiology};
 
 
-    \node at (-2, 1.2) {(b)};
-    \draw[sep] (2.5, 1) -- (2.5, -5);
+    \node at (-2, 1.2) {(c)};
     \end{scope}
 
-    \begin{scope}[shift={(13.5,0)}]
+    \begin{scope}[shift={(8.5,0)}]
     \node[inout] (ps) at (0, 0) {Multisensory Stimuli};
-    \node[inout] (pr) at (0, -4.5) {Probability distribution\\of combined signal};
+    \node[inout] (pr) at (0, -4.5) {Probability distribution\\of estimate};
     \draw [vecArrow] (ps) -- (pr);
 
     \node[group, fit=(ps) (pr)] (p) {};
     \node at (p.north) [above] {Psychophysics};
 
-    \node at (-2, 1.2) {(c)};
+    \node at (-2, 1.2) {(b)};
+    \draw[sep] (2.5, 1) -- (2.5, -5);
     \end{scope}
 
     \draw[<->, dotted, color=red] (nb) -- (pr);
