@@ -62,9 +62,9 @@ Multisensory integration is seen as commonly exists in animals. For example, hum
     \node[inter] (i) at (2, -3) {Multisensory neurons};
     \node[inout] (r) at (2, -4.5) {Behavioral response};
 
-    \node[group, fit=(s1) (p1)] (m1) {};
+    \node[group, fit=(s1) (p1), color=blue!40] (m1) {};
     \node at (m1.north) [above] {Modality 1};
-    \node[group, fit=(s2) (p2)] (m2) {};
+    \node[group, fit=(s2) (p2), color=blue!40] (m2) {};
     \node at (m2.north) [above] {Modality 2};
 
     \foreach \from/\to in {s1/p1, s2/p2, p1/i, p2/i, i/r}
