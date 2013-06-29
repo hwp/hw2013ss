@@ -52,7 +52,7 @@ For example, humans use both visual and haptic information to perceive the size 
 Multisensory integration is also involved in some interesting phenomena. One of these phenomena is the ventriloquist effect \cite{alais_ventriloquist_2004}. The effect comes from a performance art -- ventriloquism, in which the performer makes his/her voice appear to come from elsewhere. The audience may feel that the sound is from the puppet, of which the mouth is moving. This effect results from vision ``capturing'' sound.
 Another phenomenon is the stream/bounce illusion \cite{sekuler_sound_1997}. An experiment was conducted, where a video of two oscillating circles was given and subjects may have two ambiguous perception : either the circles stream pass each other or they collide and bounce apart. The interesting fact is that, when simply adding a click sound, more subjects reported that they perceived the circles as bouncing apart.
 
-In order to explain these intriguing phenomena, researchers from a variety of disciplines try to analyze and explain the nature of multisensory integration from different aspects. According to their method, the studies of understanding multisensory integration are divided into two approaches -- psychophysical approach and neurophysiological approach.
+In order to explain these intriguing phenomena, researchers from a variety of disciplines try to analyze the nature of multisensory integration from different aspects. According to their methods, the studies of understanding multisensory integration are divided into two approaches -- psychophysical approach and neurophysiological approach.
 
 \begin{figure}[htpb]
   \centering \inputTikZ{flow}
@@ -60,21 +60,20 @@ In order to explain these intriguing phenomena, researchers from a variety of di
   \label{fig:flow}
 \end{figure}
 
-These two approaches study multisensory integration in different levels, as shown in Figure \ref{fig:flow}.
-Figure \ref{fig:flow}a is an illustration of how multisensory perception is processed in levels. Stimuli of two different modality are perceived and processed separately by primary unisensory neurons. Following this, sensory information are integrated by a population of multisensory neurons. Finally, the results the multisensory neurons are further interpreted and exhibited by behaviors.
-As depicted in Figure \ref{fig:flow}b, the 
+These two approaches study multisensory integration in different levels (see Figure \ref{fig:flow}).
+Figure \ref{fig:flow}a is an illustration of how multisensory perception is processed in levels. Stimuli of two different modalities are perceived and processed separately by primary unisensory neurons. Following this, sensory information are integrated by a population of multisensory neurons. Finally, the results of the multisensory neurons are further interpreted and, then, exhibited by behaviors.
 
-Theoretical study of multisensory integration tends to acquire a high-level, abstract view. Researchers in this direction try to find the optimal mathematical or computational model that can integrate multisensory information. They focus more on studying what the models ought to be, rather than finding out what the multisensory integration processes in brains of organisms really are.
-To achieve their goal, psychophysical and computational modeling methods are applied.
+As depicted in Figure \ref{fig:flow}b, the psychophysical study of multisensory integration analyzes the behavioral responses of multisensory input. Usually, in psychophysical experiments, human subjects are given sensory input and asked to do discrimination tasks. The behavior of subjects are observed. An example of this is the psychophysical study of the ventriloquist effect, in which the human localization of different visual and auditory input is tested \cite{alais_ventriloquist_2004}.
 
-Meanwhile, neuroscientists have studied the brain areas that underlie multisensory integration functions using neural recording and brain imaging technology. They established a number of empirical principles according to their physiological observation (reviewed in \cite{stein_multisensory_2008}).
+Whereas the psychophysical study ignores the intermediate neural precesses in brain areas, the neurophysiological study investigate the neural basis of multisensory integration (see Figure \ref{fig:flow}c). Techniques, like neuron recording and brain imaging, are used to observe the neuronal responses (firing rate) of multisensory neurons.
 
-There is significant difference between these two directions. And some of the results even seem to be contradictory. Recent study has narrowed the gap between these studies (reviewed in \cite{fetsch_bridging_2013}).
+Additional to difference in analysis levels, these two approaches also differ in directions of research. The psychophysical study is from theory to observation. At first, a theory of what mathematical model is optimal (normative prediction) is studied. Then, behaviors observed are compared to the normative prediction. On the contrary, the neurophysiological study first measures the neuronal responses in related brain areas and corresponding computational models are proposed next. A number of empirical principles are established according to the physiological observations \cite{stein_merging_1993, stanford_evaluating_2005}.
 
-Besides the study of how multisensory information are combined, researchers are also interested in knowing how the abilities of multisensory integration are developed or learned. Models that accounts for biological observations and models that are liberal with biological reality are both proposed.
+As both approaches have significant achievements, it is particularly interesting to study how these approaches relate to each other. The following questions have been raised (as depicted as a question mark in Figure \ref{fig:flow}): \emph{How are the neuronal responses related to behaviors? What are the computational rules of multisensory neurons? Are these rules in accord with normative predictions?} 
 
-The purpose of this paper is to review recent research into various approaches of multisensory integration.
-\TODO{structure of the paper}.
+% Recent studies have answered these questions \cite{fetsch_bridging_2013}.
+
+The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, a study that relates these two approaches is introduced. Finally, a neural network model that accounts for these findings is outlined.
 
 \section{Theories of multisensory integration}
 The study of multisensory integration can be viewed as solving a mathematical problem, in which the known information is precisely given in mathematical form and the question is to find out the optimal computational model (called ideal observer model). Such normative study usually involves hypothetical and rigorous statistic inference.
