@@ -1,0 +1,36 @@
+\documentclass{article}[11pt]
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\graphicspath{{../fig/}} 								% Path to a folder where all pictures are located
+
+\usepackage{fullpage}
+
+\title{Machine Learning -- Assignment 11}
+\author{Weipeng He and Sathyanarayanan}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\section{}
+
+\section{}
+
+\section{}
+\begin{align*}
+  Q^\pi(s,a) &= E_\pi \left\{ R_t | s_t = s, a_t = a \right\} \\
+  &= E_\pi \left\{ r_{t+1} + \gamma R_{t+1} | s_t = s, a_t = a \right\} \\
+  &= E_\pi \left\{ r_{t+1} + \gamma V^\pi(s_{t+1}) | s_t = s, a_t = a \right\} \\
+  &= \sum_{s'} P_{ss'}^{a} \left( R_{ss'}^{a} + \gamma V^\pi(s') \right) \\
+  &= \sum_{s'} P_{ss'}^{a} \left( R_{ss'}^{a} + \gamma \sum_{a'} \pi(s', a') Q^\pi(s', a') \right) \\
+\end{align*}
+
+\section{}
+As this is a episodic task, return is not discounted. Therefore the time spend for finding the exit is not considered. That means there is no difference for short paths and long paths. In order to learn the bias of choosing shorter path, there should be a constant negative reward for each step except that finds the exit.
+
+\end{document}
