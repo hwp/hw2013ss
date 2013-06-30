@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \graphicspath{{data/}}
 
+\usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{arrows, shapes, fit, decorations.markings}
 
@@ -69,19 +70,23 @@ Whereas the psychophysical study ignores the intermediate neural precesses in br
 
 Additional to difference in analysis levels, these two approaches also differ in directions of research. The psychophysical study is from theory to observation. At first, a theory of what mathematical model is optimal (normative prediction) is studied. Then, behaviors observed are compared to the normative prediction. On the contrary, the neurophysiological study first measures the neuronal responses in related brain areas and corresponding computational models are proposed next. A number of empirical principles are established according to the physiological observations \cite{stein_merging_1993, stanford_evaluating_2005}.
 
-As both approaches have significant achievements, it is particularly interesting to study how these approaches relate to each other. The following questions have been raised (as depicted as a question mark in Figure \ref{fig:flow}): \emph{How are the neuronal responses related to behaviors? What are the computational rules of multisensory neurons? Are these rules in accord with normative predictions?} 
+As both approaches have significant achievements, it is particularly interesting to study how these approaches relate to each other. The following questions have been raised (as depicted as a question mark in Figure \ref{fig:flow}): \emph{How are the neuronal responses related to behaviors? What are the computational rules of multisensory neurons? Are these rules consistent with normative predictions?} 
 
 % Recent studies have answered these questions \cite{fetsch_bridging_2013}.
 
 The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, a study that relates these two approaches is introduced. Finally, a neural network model that accounts for these findings is outlined.
 
-\section{Theories of multisensory integration}
-The study of multisensory integration can be viewed as solving a mathematical problem, in which the known information is precisely given in mathematical form and the question is to find out the optimal computational model (called ideal observer model). Such normative study usually involves hypothetical and rigorous statistic inference.
+\section{Theories and psychophysics of multisensory integration}
+As was pointed out in the introduction to this paper, psychophysical study of multisensory integration involves theoretical deduction and behavioral observation.
 
-\subsection{Optimal cue integration}
-One of the successful ideal observer models is called optimal cue integration \cite{geisler_contributions_2011}. This model is popularly used in both unimodal cue integration (especially in computational vision research) and cross-modal cue integration.
+Considering multisensory perception as a mathematical problem, there are numerous discussions about the computational and statistical solution to the problem. The problem, which is called optimal cue integration, is that, given several cues with uncertainties, what is the optimal estimate by combining these cues together. A solution to the problem is called an ideal observer model. Depending on the assumptions of the uncertainty of the source cues and what the observer is trying to optimize, there is a variety of ideal observer models being proposed \cite{landy_ideal-observer_2011}.
 
-The set-up of the model is that, the system get multiple cues ($\hat{S}_i, i=1 \dots n$) with different reliability ($g_i$), which is decided by the variance($\sigma_i$) as input. Then the best estimate ($\hat{S}_{opt}$) is given by the weighted sum of all cues, where the weights ($w_i$) are proportional to the reliability of the corresponding cues:
+With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,fetsch_neural_2012}.
+
+\subsection{Linear model for maximum reliability}
+A simple linear ideal observer model is successful in predicting the optimal estimate under certain assumptions. This model is one of the standard models for testing multisensory behavior \cite{landy_ideal-observer_2011}.
+
+The set-up of the model is that, the system get multiple source cues ($\hat{S}_i, i=1 \dots n$) with different reliability ($g_i$), which is decided by the variance($\sigma_i$), as input. Then the best estimate ($\hat{S}_{opt}$) is given by the weighted sum of all cues, where the weights ($w_i$) are proportional to the reliability of the corresponding cues:
 \begin{gather}
   \hat{S}_{opt} = \sum_{i=1}^{n} w_i \hat{S}_i \label{eq:optest} \\
   w_i = \frac{g_i}{\sum_{i=1}^{n} g_i}, \quad g_i = \frac{1}{\sigma_i^2} \label{eq:optweight}
@@ -95,11 +100,19 @@ With simplifying assumptions, this estimation is in accord with Bayesian inferen
 \begin{equation}
   P(X|C_1,C_2) = \frac{P(C_1,C_2|X)P(X)}{P(C_1,C_2)}
 \end{equation}
-If one assumes independent Gaussian distribution of two observations and a uniform prior, the probability is:
+If one assumes independent Gaussian noise, that is Gaussian distribution of the two observations, and a uniform prior, the probability is:
 \begin{equation}
   P(X|C_1,C_2) \propto P(C_1|X)P(C_2|X)
 \end{equation}
 This product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively.
+
+\begin{figure}[htpb]
+  \centering \inputTikZ{bayes}
+  \caption{Example of standard linear ideal observer model.}
+  \label{fig:bayes}
+\end{figure}
+
+An example is shown in Figure \ref{fig:bayes}.
 
 \subsection{Behavioral experiments}
 Optimal cue integration was not only studied hypothetical, but also supported by behavioral experiments in psychophysics \cite{alais_ventriloquist_2004}.
@@ -152,6 +165,6 @@ the empirical principles that were initially described in classic studies of the
 
 \addcontentsline{toc}{section}{References}
 \bibliography{bib}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 
 \end{document}

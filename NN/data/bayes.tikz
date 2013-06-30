@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+% define normal distribution function 'normal'
+    \def\normal[#1,#2]{#2/exp(((x-#1)^2)*#2)}
+
+\begin{axis}[xmin=-6, xmax=6, ymin=0, no markers, samples=200, axis y line*=left, axis x line*=bottom, xticklabels={,,}, yticklabels={,,}, xlabel=Stimulus value $X$, ylabel=Probability]
+\addplot[thick, green] {\normal[-2,.5]};
+\addplot[thick, blue] {\normal[1,1]};
+\addplot[thick, red] {\normal[0,1.5]};
+\legend{$P(C_1|X)$, $P(C_2|X)$, $P(X|C_1{,}C_2)$};
+\end{axis}
+ 
+\end{tikzpicture}

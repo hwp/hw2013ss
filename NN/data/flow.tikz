@@ -34,7 +34,6 @@
     \node[group, fit=(ns) (nr)] (n) {};
     \node at (n.north) [above] {Neurophysiology};
 
-
     \node at (-2, 1.2) {(c)};
     \end{scope}
 
