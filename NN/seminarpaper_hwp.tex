@@ -50,7 +50,7 @@
 Multisensory integration is a process, which is carried out by animals to combine different sensory cues in order to get a better perception of the environment. This process is essential as multi-modal senses provide complementary information.
 For example, humans use both visual and haptic information to perceive the size and position of an object \cite{ernst_humans_2002}. Some mammals integrate visual and vestibular information to estimate self-motion \cite{gu_visual_2006}.
 
-Multisensory integration is also involved in some interesting phenomena. One of these phenomena is the ventriloquist effect \cite{alais_ventriloquist_2004}. The effect comes from a performance art -- ventriloquism, in which the performer makes his/her voice appear to come from elsewhere. The audience may feel that the sound is from the puppet, of which the mouth is moving. This effect results from vision ``capturing'' sound.
+Multisensory integration is also involved in some interesting phenomena. One of these phenomena is the ventriloquist effect \cite{alais_ventriloquist_2004}. The effect comes from a performance art -- ventriloquism, in which the performer makes his/her voice appear to come from elsewhere. The audience may feel that the sound is from the puppet, the lips of which are moving. This effect results from vision ``capturing'' sound.
 Another phenomenon is the stream/bounce illusion \cite{sekuler_sound_1997}. An experiment was conducted, where a video of two oscillating circles was given and subjects may have two ambiguous perception : either the circles stream pass each other or they collide and bounce apart. The interesting fact is that, when simply adding a click sound, more subjects reported that they perceived the circles as bouncing apart.
 
 In order to explain these intriguing phenomena, researchers from a variety of disciplines try to analyze the nature of multisensory integration from different aspects. According to their methods, the studies of understanding multisensory integration are divided into two approaches -- psychophysical approach and neurophysiological approach.
@@ -81,7 +81,7 @@ As was pointed out in the introduction to this paper, psychophysical study of mu
 
 Considering multisensory perception as a mathematical problem, there are numerous discussions about the computational and statistical solution to the problem. The problem, which is called optimal cue integration, is that, given several cues with uncertainties, what is the optimal estimate by combining these cues together. A solution to the problem is called an ideal observer model. Depending on the assumptions of the uncertainty of the source cues and what the observer is trying to optimize, there is a variety of ideal observer models being proposed \cite{landy_ideal-observer_2011}.
 
-With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,fetsch_neural_2012}.
+With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as non-human primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,fetsch_neural_2012}.
 
 \subsection{Linear model for maximum reliability}
 A simple linear ideal observer model is successful in predicting the optimal estimate under certain assumptions. This model is one of the standard models for testing multisensory behavior \cite{landy_ideal-observer_2011}.
@@ -132,27 +132,28 @@ In the second experiment (Figure \ref{fig:visaudloc}b), after changing the relia
 
 In the third experiment (Figure \ref{fig:visaudloc}c), the performance of multisensory cue integration was compared against unisensory cue. The visual and auditory stimuli were placed in congruent position with same reliability. The right figure shows that the curve of combined cumulative Gaussian psychometric function has steeper slope than that of unisensory cue. In addition, data show that the standard deviation of combined cue decreased by $30\%$. This is approximate to $1-\sqrt{2}$, which we can calculate using optimal cue integration (Equation \ref{eq:optweight} and \ref{eq:optrel}).
 
-The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that primates also have the similar performance in vision-vestibular integration \cite{fetsch_neural_2012}.
+The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that non-human primates also have the similar performance in vision-vestibular integration \cite{fetsch_neural_2012}.
 
 \section{Neurophysiology of multisensory integration}
 In parallel to psychophysical studies, neuroscientists try to explain multisensory integration phenomena on account of the neural basis.
 They use neurophysiological recording or brain imaging to examine the physiological properties of a neuron or a population of neurons that underlies the integration functions.
 
+%As was mentioned in the introduction, the object of neurophysiological study is the neuronal responses (firing rates) of multisensory neurons. The neuronal responses are tested in different conditions of multisensory versus unisensory, 
+
 Multisensory neurons are found in many brain areas, including superior colliculus \cite{stein_merging_1993} and cortex (posterior parietal area \cite{graziano_system_2001} and superior temporal area \cite{alais_multisensory_2010}).
-Among all neurophysiological studies, there are two groups of influential work -- the classical multisensory studies in cat superior colliculus \cite{stein_merging_1993, stein_multisensory_2008} and a recent body of work on vision-vestibular integration in primate dorsal medial superior temporal area \cite{gu_visual_2006, morgan_multisensory_2008, fetsch_dynamic_2009, fetsch_visualvestibular_2010}.
-In the former studies, some key principles of sensory integration are established. The later studies focus on reliability-based cue weighting and linking the physiological evidence to behavioral observations.
+Among all neurophysiological studies, there are two groups of influential work -- the classical multisensory studies in cat superior colliculus (SC) \cite{stein_merging_1993, stein_multisensory_2008} and a recent body of work on vision-vestibular integration in primate dorsal medial superior temporal area (MSTd) \cite{gu_visual_2006, morgan_multisensory_2008, fetsch_dynamic_2009, fetsch_visualvestibular_2010}.
+In the former studies, some key principles of sensory integration are established. The later studies focus on its mathematical rules and linking the physiological evidence to behavioral observations.
 
 %Researchers found that multisensory neurons are particularly abundant in the superior colliculus (SC), a midbrain structure primarily involved in orienting the eyes and head towards salient stimuli \cite{sparks_translation_1986}. Another area in brain that caught interest from researchers is the dorsal medial superior temporal area (MSTd), which is responsible for integration visual and vestibular cues for detecting self-motion \cite{gu_visual_2006}.
 
 \subsection{Multisensory integration in SC and empirical principles}
-By studying the cat SC area for multisensory integration, researchers found a number of empirical principles, which state the properties of multisensory integration \cite{meredith_interactions_1983}. The most prominent principles are the ``inverse effectiveness'' and ``spatial and temporal principle''.
+The superior colliculus (SC), a structure common to all mammalian brains, is involved in audio-visual and visual-somatosensory integration at a fairly low level. It is ideal for examining properties of multisensory integration because of its low-levelness and multimodal inputs \cite{alais_multisensory_2010}.
+By studying the cat SC area for multisensory integration, researchers found a number of empirical principles, which state the properties of multisensory integration \cite{stein_merging_1993}. The most prominent principles are the principle of ``inverse effectiveness'' and the ``spatial and temporal principle''.
 
-\TODO{details about ``inverse effectiveness'' and ``spatial and temporal principle''.}
+Enhancement of multisensory response to spatially congruent stimuli is a basic property for multisensory neurons. However, the effect of the enhancement is found to decrease with stimulus intensity, which is known as ``inverse effectiveness'' \cite{meredith_visual_1986}. More specifically, for spatially congruent stimuli, when the input is weak, the multisensory response may exceed the sum of unisensory responses (superadditivity). As the stimulus intensity increases, the enhancement becomes less salient and the multisensory response tends to be equal or less than the sum of unisensory responses (these cases are termed additivity and subadditivity respectively).
 
-\subsection{Development of multisensory integration}
-Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
-
-\TODO{a short overview of physiological study of development of MSI.}
+%\subsection{Development of multisensory integration}
+%Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
 
 \section{Neural network models}
 With the insight from psychophysical and physiological study, a number of computational models, including neural network models are developed. 
