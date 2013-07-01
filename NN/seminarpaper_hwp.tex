@@ -48,7 +48,7 @@
 \label{sec:intro}
 
 Multisensory integration is a process, which is carried out by animals to combine different sensory cues in order to get a better perception of the environment. This process is essential as multi-modal senses provide complementary information.
-For example, humans use both visual and haptic information to perceive the size and position of an object \cite{ernst_humans_2002}. Some mammals integrate visual and vestibular information to estimate self-motion \cite{fetsch_dynamic_2009}.
+For example, humans use both visual and haptic information to perceive the size and position of an object \cite{ernst_humans_2002}. Some mammals integrate visual and vestibular information to estimate self-motion \cite{gu_visual_2006}.
 
 Multisensory integration is also involved in some interesting phenomena. One of these phenomena is the ventriloquist effect \cite{alais_ventriloquist_2004}. The effect comes from a performance art -- ventriloquism, in which the performer makes his/her voice appear to come from elsewhere. The audience may feel that the sound is from the puppet, of which the mouth is moving. This effect results from vision ``capturing'' sound.
 Another phenomenon is the stream/bounce illusion \cite{sekuler_sound_1997}. An experiment was conducted, where a video of two oscillating circles was given and subjects may have two ambiguous perception : either the circles stream pass each other or they collide and bounce apart. The interesting fact is that, when simply adding a click sound, more subjects reported that they perceived the circles as bouncing apart.
@@ -101,7 +101,7 @@ With simplifying assumptions, this estimation is in accord with Bayesian inferen
   P(X|C_1,C_2) = \frac{P(C_1,C_2|X)P(X)}{P(C_1,C_2)}
 \end{equation}
 If one assumes independent Gaussian noise, that is Gaussian distribution of the two observations, and a uniform prior, the probability is:
-\begin{equation}
+\begin{equation} \label{eq:post}
   P(X|C_1,C_2) \propto P(C_1|X)P(C_2|X)
 \end{equation}
 This product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively.
@@ -112,33 +112,39 @@ This product is also a Gaussian of which the mean and inverse of variance are co
   \label{fig:bayes}
 \end{figure}
 
-An example is shown in Figure \ref{fig:bayes}.
+Figure \ref{fig:bayes} is an illustration of how the ideal observer model combines two sensory cues. The two cues (depicted as green and blue curves) are normally distributed around different centers ($\hat{S}_1$ and $\hat{S}_2$). The combined estimate, which is calculated by Equation \ref{eq:post}, is shown as the red curve. By using information from both cues, the combined estimate has higher reliability (the height of the curve).
 
 \subsection{Behavioral experiments}
-Optimal cue integration was not only studied hypothetical, but also supported by behavioral experiments in psychophysics \cite{alais_ventriloquist_2004}.
-
-The experiments carried out simple spatial localization tasks, in which subjects were given visual and auditory stimuli and asked to report whether the stimuli were from left or right. Both visual and auditory stimuli were controlled in position and reliability. The result is shown in Figure \ref{fig:visaudloc}.
+The linear ideal observer model combines sensory cues in a statistically optimal fashion. Surprisingly, a number of psychophysical experiments have shown that humans process multisensory cues in an analogous way. These experiments examined human visual-haptic integration \cite{ernst_humans_2002} and audio-visual integration \cite{alais_ventriloquist_2004}.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=.9\textwidth]{fetsch-visaudloc}
-  \caption{Behavioural experiments of visual and auditory localization task. (from \cite{fetsch_bridging_2013})}
+  \caption{Behavioral experiments of visual and auditory localization task. (from \cite{fetsch_bridging_2013})}
   \label{fig:visaudloc}
 \end{figure}
 
-In the first experiment (Figure \ref{fig:visaudloc}a), the two modal of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates more than the auditory cue.
+One of the experiments \cite{alais_ventriloquist_2004} carried out simple spatial localization tasks, in which subjects were given visual and auditory stimuli and asked to report whether the stimuli were from left or right. Both visual and auditory stimuli were controlled in position and reliability. The result is shown in Figure \ref{fig:visaudloc}.
 
-While, in the second experiment (Figure \ref{fig:visaudloc}b), after changing the reliability of the visual stimulus to less than that of the auditory stimulus, the PSE shifted to larger than 0. This also indicates that the more reliable cue dominates more, which is in accord with Equation \ref{eq:optweight} in optimal cue integration.
+In the first experiment (Figure \ref{fig:visaudloc}a), the two modal of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates the auditory cue.
 
-In the third experiment (Figure \ref{fig:visaudloc}c), the performance of multisensory cue integration was compared against unisenory cue. The visual and auditory stimuli were placed in congruent position with same reliability. Figure shows that the curve of combined cue has steeper slope than that of unisensory cue. In addition, data shows that the standard deviation of combined cue decreased by $30\%$. This is approximate to $1-\sqrt{2}$, which we can calculate using optimal cue integration (Equation \ref{eq:optweight} and \ref{eq:optrel}).
+In the second experiment (Figure \ref{fig:visaudloc}b), after changing the reliability of the visual stimulus to less than that of the auditory stimulus, the PSE shifted to larger than 0. This also indicates that the more reliable cue is given higher weight, which is in accord with Equation \ref{eq:optweight}.
+
+In the third experiment (Figure \ref{fig:visaudloc}c), the performance of multisensory cue integration was compared against unisensory cue. The visual and auditory stimuli were placed in congruent position with same reliability. The right figure shows that the curve of combined cumulative Gaussian psychometric function has steeper slope than that of unisensory cue. In addition, data show that the standard deviation of combined cue decreased by $30\%$. This is approximate to $1-\sqrt{2}$, which we can calculate using optimal cue integration (Equation \ref{eq:optweight} and \ref{eq:optrel}).
+
+The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that primates also have the similar performance in vision-vestibular integration \cite{fetsch_neural_2012}.
 
 \section{Neurophysiology of multisensory integration}
-In parallel to psychophysical studies, neuroscientists try to explain multisensory integration phenomena on account of the neural basis in brains.
-They conduct experiments to examine the physiological properties of a neuron or a population of neurons that underlies the integration functions.
+In parallel to psychophysical studies, neuroscientists try to explain multisensory integration phenomena on account of the neural basis.
+They use neurophysiological recording or brain imaging to examine the physiological properties of a neuron or a population of neurons that underlies the integration functions.
 
-Researchers found that multisensory neurons are particularly abundant in the superior colliculus (SC), a midbrain structure primarily involved in orienting the eyes and head towards salient stimuli \cite{sparks_translation_1986}. Another area in brain that caught interest from researchers is the dorsal medial superior temporal area (MSTd), which is responsible for integration visual and vestibular cues for detecting self-motion \cite{gu_visual_2006}.
+Multisensory neurons are found in many brain areas, including superior colliculus \cite{stein_merging_1993} and cortex (posterior parietal area \cite{graziano_system_2001} and superior temporal area \cite{alais_multisensory_2010}).
+Among all neurophysiological studies, there are two groups of influential work -- the classical multisensory studies in cat superior colliculus \cite{stein_merging_1993, stein_multisensory_2008} and a recent body of work on vision-vestibular integration in primate dorsal medial superior temporal area \cite{gu_visual_2006, morgan_multisensory_2008, fetsch_dynamic_2009, fetsch_visualvestibular_2010}.
+In the former studies, some key principles of sensory integration are established. The later studies focus on reliability-based cue weighting and linking the physiological evidence to behavioral observations.
 
-\subsection{Empirical principles}
+%Researchers found that multisensory neurons are particularly abundant in the superior colliculus (SC), a midbrain structure primarily involved in orienting the eyes and head towards salient stimuli \cite{sparks_translation_1986}. Another area in brain that caught interest from researchers is the dorsal medial superior temporal area (MSTd), which is responsible for integration visual and vestibular cues for detecting self-motion \cite{gu_visual_2006}.
+
+\subsection{Multisensory integration in SC and empirical principles}
 By studying the cat SC area for multisensory integration, researchers found a number of empirical principles, which state the properties of multisensory integration \cite{meredith_interactions_1983}. The most prominent principles are the ``inverse effectiveness'' and ``spatial and temporal principle''.
 
 \TODO{details about ``inverse effectiveness'' and ``spatial and temporal principle''.}
