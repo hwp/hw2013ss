@@ -1,0 +1,76 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+
+\usepackage{mathtools}
+
+\title{Assignment \#5 -- Introduction to Robotics}
+\author{
+Luisa Zintgraf \texttt{6027303} \\
+Weipeng He \texttt{6411529} \\
+Philipp Ruppel \texttt{6248024}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{} % task 1
+
+\section{} % task 2
+We use the following indicator function
+\[
+  \mathbf{1}_A(t) = \begin{dcases}
+      1 & \text{if } t \in A \\
+      0 & \text{otherwise}
+    \end{dcases}
+\]
+
+By definition, we have:
+\[
+  N_{i,1}(t) = \mathbf{1}_{[t_{i}, t_{i+1})}(t) = \begin{dcases}
+      1 & \text{if } t_{i} \leq t < t_{i+1} \\
+      0 & \text{otherwise}
+    \end{dcases}
+\]
+
+\begin{align*}
+  N_{i,2}(t) &= \frac{t-t_{i}}{t_{i+1}-t_{i}} N_{i,1}(t) + \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} N_{i+1,1}(t) \\
+             &= \frac{t-t_{i}}{t_{i+1}-t_{i}} \mathbf{1}_{[t_{i}, t_{i+1})}(t) + \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} \mathbf{1}_{[t_{i+1}, t_{i+2})}(t) \\
+             &= 
+  \begin{dcases}
+    \frac{t-t_{i}}{t_{t+1}-t_{i}} & \text{if } t_{i} \leq t < t_{i+1} \\
+    \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} & \text{if } t_{i+1} \leq t < t_{i+2} \\
+    0 & \text{otherwise}
+  \end{dcases}
+\end{align*}
+
+\begin{align*}
+  N_{i,3}(t) &= \frac{t-t_{i}}{t_{i+2}-t_{i}} N_{i,2}(t) + \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} N_{i+1,2}(t) \\
+             &= \frac{t-t_{i}}{t_{i+2}-t_{i}}  
+                \left( \frac{t-t_{i}}{t_{i+1}-t_{i}} \mathbf{1}_{[t_{i}, t_{i+1})}(t) + \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} \mathbf{1}_{[t_{i+1}, t_{i+2})}(t) \right) \\
+             & \qquad{}  + \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} 
+                \left( \frac{t-t_{i+1}}{t_{i+2}-t_{i+1}} \mathbf{1}_{[t_{i+1}, t_{i+2})}(t) + \frac{t_{i+3}-t}{t_{i+3}-t_{i+2}} \mathbf{1}_{[t_{i+2}, t_{i+3})}(t) \right)
+             \\
+             &= \frac{t-t_{i}}{t_{i+2}-t_{i}} \frac{t-t_{i}}{t_{i+1}-t_{i}} \mathbf{1}_{[t_{i}, t_{i+1})}(t) \\
+             & \qquad{} + \left( \frac{t-t_{i}}{t_{i+2}-t_{i}} \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} + \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} \frac{t-t_{i+1}}{t_{i+2}-t_{i+1}} \right) \mathbf{1}_{[t_{i+1}, t_{i+2})}(t) \\
+             & \qquad{} + \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} \frac{t_{i+3}-t}{t_{i+3}-t_{i+2}} \mathbf{1}_{[t_{i+2}, t_{i+3})}(t)
+             \\
+  &= \begin{dcases}
+    \frac{t-t_{i}}{t_{i+2}-t_{i}} \frac{t-t_{i}}{t_{i+1}-t_{i}} & \text{if } t_{i} \leq t < t_{i+1} \\
+    \frac{t-t_{i}}{t_{i+2}-t_{i}} \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}} + \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} \frac{t-t_{i+1}}{t_{i+2}-t_{i+1}} & \text{if } t_{i+1} \leq t < t_{i+2} \\
+    \frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} \frac{t_{i+3}-t}{t_{i+3}-t_{i+2}} & \text{if } t_{i+2} \leq t < t_{i+3} \\
+    0 & \text{otherwise}
+  \end{dcases}
+\end{align*}
+
+\section{} % task 3
+
+
+
+\end{document}
