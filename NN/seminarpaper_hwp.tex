@@ -55,7 +55,7 @@ Another phenomenon is the stream/bounce illusion \cite{sekuler_sound_1997}. An e
 
 In order to explain these intriguing phenomena, researchers from a variety of disciplines try to analyze the nature of multisensory integration from different aspects. According to their methods, the studies of understanding multisensory integration are divided into two approaches -- psychophysical approach and neurophysiological approach.
 
-\begin{figure}[htpb]
+\begin{figure}[tpbh]
   \centering \inputTikZ{flow}
   \caption{The procedure of multisensory perception and the analysis levels of different study.}
   \label{fig:flow}
@@ -106,7 +106,7 @@ If one assumes independent Gaussian noise, that is Gaussian distribution of the 
 \end{equation}
 This product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively.
 
-\begin{figure}[htpb]
+\begin{figure}[tpbh]
   \centering \inputTikZ{bayes}
   \caption{Example of standard linear ideal observer model.}
   \label{fig:bayes}
@@ -117,7 +117,7 @@ Figure \ref{fig:bayes} is an illustration of how the ideal observer model combin
 \subsection{Behavioral experiments}
 The linear ideal observer model combines sensory cues in a statistically optimal fashion. Surprisingly, a number of psychophysical experiments have shown that humans process multisensory cues in an analogous way. These experiments examined human visual-haptic integration \cite{ernst_humans_2002} and audio-visual integration \cite{alais_ventriloquist_2004}.
 
-\begin{figure}[htpb]
+\begin{figure}[tpbh]
   \centering
   \includegraphics[width=.9\textwidth]{fetsch-visaudloc}
   \caption{Behavioral experiments of visual and auditory localization task. (from \cite{fetsch_bridging_2013})}
@@ -154,20 +154,46 @@ Enhancement of multisensory response to spatially congruent stimuli is a basic p
 
 Researchers also have found out the robust enhancement of multisensory response occurs only when the input stimuli are spatially congruent and temporally synchronous \cite{meredith_determinants_1987, meredith_spatial_1996}. When, contrastingly, the inputs are placed in large spatial or temporal disparity, response suppression occurs.
 
-\subsection{Multisensory integration in MSTd}
+\subsection{Multisensory integration in area MSTd}
 Although the aforementioned classical empirical principles summarize the key properties of multisensory response, these properties are not described quantitatively. The mathematical combination rule employed by multisensory neurons remains to be found. A comprehensive research on visual-vestibular integration in primate MSTd area has derived a linear combination rule, which closely matches the observation \cite{morgan_multisensory_2008}.
 
 The medial superior temporal area (MSTd) is believed to be involved in visual-vestibular interaction for perceiving self-motion (heading). Different from previous studies, Morgan \etal has probed a broad range of stimulus space and recorded responses in this area \cite{morgan_multisensory_2008}. The data are sufficient enough for them to characterize the mathematical properties of the multisensory combining rule.
 
-An ``virtual reality'' motion platform (Figure \ref{fig:apparatus}) is used to control the visual and vestibular stimuli of the study. %TODO
-
-\begin{figure}[thpb]
+\begin{figure}[tpbh]
   \centering
   \includegraphics[scale=.6]{apparatus}
-  \caption{Apparatus used to study visual-vestibular cue integration (From \cite{fetsch_visualvestibular_2010})}
+  \caption{Apparatus used to study visual-vestibular cue integration. (from \cite{fetsch_visualvestibular_2010})}
   \label{fig:apparatus}
 \end{figure}
 
+An ``virtual reality'' motion platform (Figure \ref{fig:apparatus}) is used to control the visual and vestibular stimuli of the study. 
+This platform can translate in any horizontal direction to invoke the vestibular stimulus of the monkey seated in the apparatus. Meanwhile, the monkey looks at the moving particles (optical flow) in the screen and receives the visual stimulus of self-motion. The optical flow is controlled to vary in direction and coherence.
+
+During the experiment, a variety of conditions are tested. Conditions include presenting visual cue alone in 8 directions, vestibular cue alone in 8 directions and 64 ($8 \times 8$) combinations of cues, both congruent and conflicting. The optical flow coherence (visual cue reliability) is manipulated in $100\%$, $50\%$ and $25\%$. Responses of one of the MSTd cells is shown in Figure \ref{fig:coherence}.
+
+\begin{figure}[btph]
+  \centering
+  \includegraphics[width=\textwidth]{coherence}
+  \caption{Responses of a MSTd cell to multisensory stimulus. Curves along bottom and left margin show the responses when visual and vestibular inputs present alone. The color contour plots show the multisensory response. The visual dominance of heading perception is weakened as optical flow coherence decrease. (from \cite{morgan_multisensory_2008})}
+  \label{fig:coherence}
+\end{figure}
+
+Morgan \etal tried to address an arithmetic expression that describes the response to multisensory stimulus combinations ($R_{comb}$) as a function of the responses to vestibular and visual stimuli ($R_{vest}$ and $R_{vis}$, respectively) presented separately. A linear combination rule is found to closely match the observed data:
+\begin{equation}
+  R_{comb}(\phi_{vest}, \phi_{vis}) = w_{vest} R_{vest}(\phi_{vest}) + w_{vis} R_{vis}(\phi_{vis}) + C 
+  \label{eq:lincomb}
+\end{equation}
+
+In contrast to classical study in SC, which emphasizes superadditivity \cite{meredith_visual_1986}, Morgan \etal found that most MSTd neurons have subadditive responses (\eg $w_{vest} + w_{vis} < 1$). To explain this inconsistency, there are two factors should be taken into account. First, these two studies observed different brain areas. Additionally, other studies also suggest that the superadditivity is far less common in cortex than in SC \cite{alais_multisensory_2010}. Second, the superadditivity is found only if the input stimuli are weak (near the threshold of eliciting a response). However, it is more common that input stimuli are above the threshold and additivity occurs \cite{stanford_evaluating_2005}.
+
+Another interesting finding is that the mixing weights, $w_{vest}$ and $w_{vis}$, depend on the cue reliability (Figure \ref{fig:weight}), which is analogous to psychophysical study of optimal cue integration.
+
+\begin{figure}[tpbh]
+  \centering
+  \includegraphics[width=.7\textwidth]{weight}
+  \caption{Mixing weights change with optical flow coherence. (from \cite{morgan_multisensory_2008})}
+  \label{fig:weight}
+\end{figure}
 
 %\subsection{Development of multisensory integration}
 %Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
