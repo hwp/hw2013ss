@@ -81,7 +81,7 @@ As was pointed out in the introduction to this paper, psychophysical study of mu
 
 Considering multisensory perception as a mathematical problem, there are numerous discussions about the computational and statistical solution to the problem. The problem, which is called optimal cue integration, is that, given several cues with uncertainties, what is the optimal estimate by combining these cues together. A solution to the problem is called an ideal observer model. Depending on the assumptions of the uncertainty of the source cues and what the observer is trying to optimize, there is a variety of ideal observer models being proposed \cite{landy_ideal-observer_2011}.
 
-With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as non-human primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,fetsch_neural_2012}.
+With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as non-human primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,gu_neural_2008}.
 
 \subsection{Linear model for maximum reliability}
 A simple linear ideal observer model is successful in predicting the optimal estimate under certain assumptions. This model is one of the standard models for testing multisensory behavior \cite{landy_ideal-observer_2011}.
@@ -96,13 +96,13 @@ and the optimal estimate has a higher reliability ($g_{opt}$) than that of any i
   g_{opt} = \sum_{i=1}^{n} g_i \label{eq:optrel}
 \end{equation}
 
-With simplifying assumptions, this estimation is in accord with Bayesian inference \cite{knill_bayesian_2004}. According to Bayes' theorem, the posterior probability of the real value ($X$) under condition of two observations ($C_1, C_1$) is:
+With simplifying assumptions, this estimation is in accord with Bayesian inference \cite{knill_bayesian_2004}. According to Bayes' theorem, the posterior probability of the real value ($s$) under condition of two observations ($c_1, c_2$) is:
 \begin{equation}
-  P(X|C_1,C_2) = \frac{P(C_1,C_2|X)P(X)}{P(C_1,C_2)}
+  p(s|c_1,c_2) = \frac{p(c_1,c_2|s)p(s)}{p(c_1,c_2)}
 \end{equation}
 If one assumes independent Gaussian noise, that is Gaussian distribution of the two observations, and a uniform prior, the probability is:
 \begin{equation} \label{eq:post}
-  P(X|C_1,C_2) \propto P(C_1|X)P(C_2|X)
+  p(s|c_1,c_2) \propto p(c_1|s)p(c_2|s)
 \end{equation}
 This product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively.
 
@@ -132,7 +132,7 @@ In the second experiment (Figure \ref{fig:visaudloc}b), after changing the relia
 
 In the third experiment (Figure \ref{fig:visaudloc}c), the performance of multisensory cue integration was compared against unisensory cue. The visual and auditory stimuli were placed in congruent position with same reliability. The right figure shows that the curve of combined cumulative Gaussian psychometric function has steeper slope than that of unisensory cue. In addition, data show that the standard deviation of combined cue decreased by $30\%$. This is approximate to $1-\sqrt{2}$, which we can calculate using optimal cue integration (Equation \ref{eq:optweight} and \ref{eq:optrel}).
 
-The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that non-human primates also have the similar performance in vision-vestibular integration \cite{fetsch_neural_2012}.
+The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that non-human primates also have the similar performance in vision-vestibular integration \cite{gu_neural_2008}.
 
 \section{Neurophysiology of multisensory integration}
 In parallel to psychophysical studies, neuroscientists try to explain multisensory integration phenomena on account of the neural basis.
@@ -141,7 +141,7 @@ They use neurophysiological recording or brain imaging to examine the physiologi
 %As was mentioned in the introduction, the object of neurophysiological study is the neuronal responses (firing rates) of multisensory neurons. The neuronal responses are tested in different conditions of multisensory versus unisensory, 
 
 Multisensory neurons are found in many brain areas, including superior colliculus \cite{stein_merging_1993} and cortex (posterior parietal area \cite{graziano_system_2001} and superior temporal area \cite{alais_multisensory_2010}).
-Among all neurophysiological studies, there are two groups of influential work -- the classical multisensory studies in cat superior colliculus (SC) \cite{stein_merging_1993, stein_multisensory_2008} and a recent body of work on vision-vestibular integration in primate dorsal medial superior temporal area (MSTd) \cite{gu_visual_2006, morgan_multisensory_2008, fetsch_dynamic_2009, fetsch_visualvestibular_2010}.
+Among all neurophysiological studies, there are two groups of influential work -- the classical multisensory studies in cat superior colliculus (SC) \cite{stein_merging_1993, stein_multisensory_2008} and a recent body of work on vision-vestibular integration in primate dorsal medial superior temporal area (MSTd) \cite{morgan_multisensory_2008, fetsch_visualvestibular_2010}.
 In the former studies, some key principles of sensory integration are established. The later studies focus on its mathematical rules and linking the physiological evidence to behavioral observations.
 
 %Researchers found that multisensory neurons are particularly abundant in the superior colliculus (SC), a midbrain structure primarily involved in orienting the eyes and head towards salient stimuli \cite{sparks_translation_1986}. Another area in brain that caught interest from researchers is the dorsal medial superior temporal area (MSTd), which is responsible for integration visual and vestibular cues for detecting self-motion \cite{gu_visual_2006}.
@@ -187,6 +187,7 @@ Morgan \etal tried to address an arithmetic expression that describes the respon
 In contrast to classical study in SC, which emphasizes superadditivity \cite{meredith_visual_1986}, Morgan \etal found that most MSTd neurons have subadditive responses (\eg $w_{vest} + w_{vis} < 1$). To explain this inconsistency, there are two factors should be taken into account. First, these two studies observed different brain areas. Additionally, other studies also suggest that the superadditivity is far less common in cortex than in SC \cite{alais_multisensory_2010}. Second, the superadditivity is found only if the input stimuli are weak (near the threshold of eliciting a response). However, it is more common that input stimuli are above the threshold and additivity occurs \cite{stanford_evaluating_2005}.
 
 Another interesting finding is that the mixing weights, $w_{vest}$ and $w_{vis}$, depend on the cue reliability (Figure \ref{fig:weight}), which is analogous to psychophysical study of optimal cue integration.
+This is neuronal evidence of the ability of animals to adapt to cue reliability changes .
 
 \begin{figure}[tpbh]
   \centering
@@ -199,16 +200,56 @@ Another interesting finding is that the mixing weights, $w_{vest}$ and $w_{vis}$
 %Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
 
 \section{Neural network models}
-With the insight from psychophysical and physiological study, a number of computational models, including neural network models are developed. 
+So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we introduce two neural network models that bridge the gap between these studies.
+
+\subsection{The probabilistic population codes for Bayesian inference}
+A number of bio-inspired computational models have been established to account for SC responses and their dependence on cortical input \cite{patton_modeling_2003, alvarado_neural_2008}. These models successfully exhibit the computation underlying a single multisensory neuron. However, they fail to link the neuronal responses to behavior. A recent theory of probabilistic population codes (PPCs) showed that a population of neurons can apply Bayesian computation and achieve optimal cue integration \cite{ma_bayesian_2006}.
+
+The idea of the model is that using a population of neurons, a sensory cue with Gaussian noise can be encoded by the population response and Bayesian inference can be done by simply taking the linear weighted sum of both unisensory response under certain condition (Poisson-like variability of neuron response).
+
+Consider the response (firing rates) of a population of neurons, $\mathbf{r} = \{ r_1, r_2, \dots, r_N \}$, to a stimulus, $s$. The firing rate of each neuron, $r_i$, has a Poisson distribution with the mean of $f_i(s)$, 
+\begin{equation}
+  p(r_i|s) = \frac{e^{-f_i(s)} f_i(s)^{r_i}}{r_i!}
+  \label{eq:poisson}
+\end{equation}
+where $f_i$ is the tuning curve of the $i$-th neuron. The tuning curves have the same shape but differ in preferred stimulus. We can simply assume all neurons are uncorrelated, hence
+\begin{equation}
+  p(\mathbf{r}|s) = \prod_{i} p(r_i|s) = \prod_{i} \frac{e^{-f_i(s)} f_i(s)^{r_i}}{r_i!}
+  \label{eq:popvar}
+\end{equation}
+With this equation, we know, when the stimulus is $s$, what the population activity $\mathbf{r}$ might be. However, actually the observer knows little about $s$. What we are interested in is how to decode $s$ from $\mathbf{r}$.
+
+\begin{figure}[tpbh]
+  \centering
+  \includegraphics[width=.8\textwidth]{decoder}
+  \caption{The mean and variance can be decoded using Bayesian decoder. (from \cite{ma_bayesian_2006})}
+  \label{fig:decoder}
+\end{figure}
+
+Bayesian decoder is used to find out the mean and variance of $s$, when fixing $\mathbf{r}$ (Figure \ref{fig:decoder}). By Bayes' Rule, the posterior distribution is
+\begin{equation}
+  p(s|\mathbf{r}) = \frac{p(\mathbf{r}|s)p(s)}{p(\mathbf{r})} \propto p(\mathbf{r}|s)
+  \label{eq:posterior}
+\end{equation}
+Here we assume a flat prior. The best mean of the posterior distribution can be estimated by the peak in the population activity. And the variance is inversely proportional to the amplitude of the peak (the gain).
+
+Now we consider a multisensory integration task. $\mathbf{r}_1$ and $\mathbf{r}_2$ encode the input sensory cue $(c_1, \sigma_1)$ and $(c_1, \sigma_2)$ respectively. These two population has the same tuning curve profile for individual cell, that is the means of $r_{1i}$ and $r_{2i}$ are both proportional to $f_i(s)$. Simply add up the two population activities, we can get a third population activity, $\mathbf{r}_3 = \mathbf{r}_1 + \mathbf{r}_2$, that encodes the posterior distribution in condition of both cues, \eg $p(s|\mathbf{r}_3) = p(s|\mathbf{r}_1,\mathbf{r}_2)$. By decoding $\mathbf{r}_3$, we can derive the optimal estimate of combined cue and the gain is consistent with Equation \ref{eq:optrel} (Figure \ref{fig:infer}).
+
+\begin{figure}[tpbh]
+  \centering
+  \includegraphics[width=\textwidth]{infer}
+  \caption{Bayesian inference using probabilistic population codes. (from \cite{ma_bayesian_2006})}
+  \label{fig:infer}
+\end{figure}
+
+
+
 
 \subsection{The normalization model}
 Among all computational models of multisensory integration, the normalization model \cite{ohshiro_normalization_2011} is of particular interest. This model helps to explain several key empirical findings: the reliability-dependent combination rule in area MSTd as well as
 the empirical principles that were initially described in classic studies of the SC.
 
 \TODO{details of normalization model.}
-
-\subsection{}
-\TODO{other models.}
 
 \section{Discussion}
 \TODO{summarize current achievement; discuss how these studies can give insight to develop more practical models (artificial systems ?)}
