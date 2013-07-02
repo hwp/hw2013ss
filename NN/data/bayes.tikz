@@ -2,11 +2,11 @@
 % define normal distribution function 'normal'
     \def\normal[#1,#2]{sqrt(#2)/exp(((x-#1)^2)*#2)}
 
-\begin{axis}[xmin=-6, xmax=6, ymin=0, ymax=1.4, no markers, samples=200, axis y line*=left, axis x line*=bottom, xticklabels={,,}, yticklabels={,,}, xlabel=Stimulus value $X$, ylabel=Probability]
+\begin{axis}[xmin=-6, xmax=6, ymin=0, ymax=1.4, no markers, samples=200, axis y line*=left, axis x line*=bottom, xticklabels={,,}, yticklabels={,,}, xlabel=Stimulus value $x$, ylabel=probability]
 \addplot[thick, green] {\normal[-1.5,.4]};
 \addplot[thick, blue] {\normal[1,.6]};
 \addplot[thick, red] {\normal[0,1]};
-\legend{$P(C_1|X)$, $P(C_2|X)$, $P(X|C_1{,}C_2)$};
+\legend{$p(c_1|x)$, $p(c_2|x)$, $p(x|c_1{,}c_2)$};
 \draw[dashed] (axis cs:-1.5,0) -- (axis cs:-1.5,.6325) node[above] {$\hat{S}_1$};
 \draw[dashed] (axis cs:1,0) -- (axis cs:1,.7746) node[above] {$\hat{S}_2$};
 \draw[dashed] (axis cs:0,0) -- (axis cs:0,1) node[above] {$\hat{S}_{opt}$};

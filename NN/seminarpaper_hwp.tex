@@ -31,7 +31,7 @@
 
 
 \title{Multi-Sensory Integration : Theories, Empirical Observations and Models}
-\author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de} \\ \texttt{6411529}}
+\author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de}}
 
 \begin{document}
 
@@ -62,26 +62,25 @@ In order to explain these intriguing phenomena, researchers from a variety of di
 \end{figure}
 
 These two approaches study multisensory integration in different levels (see Figure \ref{fig:flow}).
-Figure \ref{fig:flow}a is an illustration of how multisensory perception is processed in levels. Stimuli of two different modalities are perceived and processed separately by primary unisensory neurons. Following this, sensory information are integrated by a population of multisensory neurons. Finally, the results of the multisensory neurons are further interpreted and, then, exhibited by behaviors.
+Figure \ref{fig:flow}a is an illustration of how multisensory perception is processed in levels. Stimuli of two different modalities are perceived and processed separately by primary unisensory neurons. Following this, sensory information is integrated by a population of multisensory neurons. Finally, the results of the multisensory neurons are further interpreted and, then, exhibited by behaviors.
 
-As depicted in Figure \ref{fig:flow}b, the psychophysical study of multisensory integration analyzes the behavioral responses of multisensory input. Usually, in psychophysical experiments, human subjects are given sensory input and asked to do discrimination tasks. The behavior of subjects are observed. An example of this is the psychophysical study of the ventriloquist effect, in which the human localization of different visual and auditory input is tested \cite{alais_ventriloquist_2004}.
+As depicted in Figure \ref{fig:flow}b, the psychophysical study of multisensory integration analyzes the behavioral responses to multisensory input. Usually, in psychophysical experiments, human subjects are given sensory input and asked to do discrimination tasks. The behavior of subjects are observed. An example of this is the psychophysical study of the ventriloquist effect, in which the human localization of different visual and auditory input is tested \cite{alais_ventriloquist_2004}.
 
 Whereas the psychophysical study ignores the intermediate neural precesses in brain areas, the neurophysiological study investigate the neural basis of multisensory integration (see Figure \ref{fig:flow}c). Techniques, like neuron recording and brain imaging, are used to observe the neuronal responses (firing rate) of multisensory neurons.
 
 Additional to difference in analysis levels, these two approaches also differ in directions of research. The psychophysical study is from theory to observation. At first, a theory of what mathematical model is optimal (normative prediction) is studied. Then, behaviors observed are compared to the normative prediction. On the contrary, the neurophysiological study first measures the neuronal responses in related brain areas and corresponding computational models are proposed next. A number of empirical principles are established according to the physiological observations \cite{stein_merging_1993, stanford_evaluating_2005}.
 
 As both approaches have significant achievements, it is particularly interesting to study how these approaches relate to each other. The following questions have been raised (as depicted as a question mark in Figure \ref{fig:flow}): \emph{How are the neuronal responses related to behaviors? What are the computational rules of multisensory neurons? Are these rules consistent with normative predictions?} 
-
 % Recent studies have answered these questions \cite{fetsch_bridging_2013}.
 
-The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, a study that relates these two approaches is introduced. Finally, a neural network model that accounts for these findings is outlined.
+The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, two neural network models that link previous diverging studies are introduced.
 
 \section{Theories and psychophysics of multisensory integration}
 As was pointed out in the introduction to this paper, psychophysical study of multisensory integration involves theoretical deduction and behavioral observation.
 
 Considering multisensory perception as a mathematical problem, there are numerous discussions about the computational and statistical solution to the problem. The problem, which is called optimal cue integration, is that, given several cues with uncertainties, what is the optimal estimate by combining these cues together. A solution to the problem is called an ideal observer model. Depending on the assumptions of the uncertainty of the source cues and what the observer is trying to optimize, there is a variety of ideal observer models being proposed \cite{landy_ideal-observer_2011}.
 
-With the theoretical support of optimal cue integration, recent psychophysical experiments found out that multisensory perception of humans as well as non-human primates closely matches the optimal prediction \cite{ernst_humans_2002,alais_ventriloquist_2004,gu_neural_2008}.
+These theoretical works are further proofed by psychophysical observations, which indicate that human as well as non-human primates perceive multisensory inputs in a near-optimal fashion \cite{ernst_humans_2002,alais_ventriloquist_2004,gu_neural_2008}.
 
 \subsection{Linear model for maximum reliability}
 A simple linear ideal observer model is successful in predicting the optimal estimate under certain assumptions. This model is one of the standard models for testing multisensory behavior \cite{landy_ideal-observer_2011}.
@@ -126,13 +125,13 @@ The linear ideal observer model combines sensory cues in a statistically optimal
 
 One of the experiments \cite{alais_ventriloquist_2004} carried out simple spatial localization tasks, in which subjects were given visual and auditory stimuli and asked to report whether the stimuli were from left or right. Both visual and auditory stimuli were controlled in position and reliability. The result is shown in Figure \ref{fig:visaudloc}.
 
-In the first experiment (Figure \ref{fig:visaudloc}a), the two modal of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates the auditory cue.
+In the first experiment (Figure \ref{fig:visaudloc}a), the two modals of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates the auditory cue.
 
 In the second experiment (Figure \ref{fig:visaudloc}b), after changing the reliability of the visual stimulus to less than that of the auditory stimulus, the PSE shifted to larger than 0. This also indicates that the more reliable cue is given higher weight, which is in accord with Equation \ref{eq:optweight}.
 
 In the third experiment (Figure \ref{fig:visaudloc}c), the performance of multisensory cue integration was compared against unisensory cue. The visual and auditory stimuli were placed in congruent position with same reliability. The right figure shows that the curve of combined cumulative Gaussian psychometric function has steeper slope than that of unisensory cue. In addition, data show that the standard deviation of combined cue decreased by $30\%$. This is approximate to $1-\sqrt{2}$, which we can calculate using optimal cue integration (Equation \ref{eq:optweight} and \ref{eq:optrel}).
 
-The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that non-human primates also have the similar performance in vision-vestibular integration \cite{gu_neural_2008}.
+The result indicates that humans perform near-optimally in multisensory perception. It is interesting to note that humans have the ability to adapt to the changing of reliability of cues (by modifying the weight in Equation \ref{eq:optest}). Additionally, experiments also shows that non-human primates have the similar performance in vision-vestibular integration \cite{gu_neural_2008}.
 
 \section{Neurophysiology of multisensory integration}
 In parallel to psychophysical studies, neuroscientists try to explain multisensory integration phenomena on account of the neural basis.
@@ -148,11 +147,11 @@ In the former studies, some key principles of sensory integration are establishe
 
 \subsection{Multisensory integration in SC and empirical principles}
 The superior colliculus (SC), a structure common to all mammalian brains, is involved in audio-visual and visual-somatosensory integration at a fairly low level. It is ideal for examining properties of multisensory integration because of its low-levelness and multimodal inputs \cite{alais_multisensory_2010}.
-By studying the cat SC area for multisensory integration, researchers found a number of empirical principles, which state the properties of multisensory integration \cite{stein_merging_1993}. The most prominent principles are the principle of ``inverse effectiveness'' and the ``spatial and temporal principle''.
+By studying the cat SC area for multisensory integration, researchers found a number of empirical principles, which state the properties of multisensory integration \cite{stein_merging_1993}. The most prominent principles are the principle of ``inverse effectiveness'' and the ``spatial/temporal principle''.
 
 Enhancement of multisensory response to spatially congruent stimuli is a basic property for multisensory neurons. However, the effect of the enhancement is found to decrease with stimulus intensity, which is known as ``inverse effectiveness'' \cite{meredith_visual_1986}. More specifically, for spatially congruent stimuli, when the input is weak, the multisensory response may exceed the sum of unisensory responses (superadditivity). As the stimulus intensity increases, the enhancement becomes less salient and the multisensory response tends to be equal or less than the sum of unisensory responses (these cases are termed additivity and subadditivity respectively).
 
-Researchers also have found out the robust enhancement of multisensory response occurs only when the input stimuli are spatially congruent and temporally synchronous \cite{meredith_determinants_1987, meredith_spatial_1996}. When, contrastingly, the inputs are placed in large spatial or temporal disparity, response suppression occurs.
+Researchers also have found out the robust enhancement of multisensory response occurs only when the input stimuli are spatially congruent and temporally synchronous \cite{meredith_determinants_1987, meredith_spatial_1996}. When, contrastingly, the inputs are placed in large spatial or temporal disparity, response suppression occurs. This is referred as ``spatial/temporal principle''.
 
 \subsection{Multisensory integration in area MSTd}
 Although the aforementioned classical empirical principles summarize the key properties of multisensory response, these properties are not described quantitatively. The mathematical combination rule employed by multisensory neurons remains to be found. A comprehensive research on visual-vestibular integration in primate MSTd area has derived a linear combination rule, which closely matches the observation \cite{morgan_multisensory_2008}.
@@ -192,7 +191,7 @@ This is neuronal evidence of the ability of animals to adapt to cue reliability 
 \begin{figure}[tpbh]
   \centering
   \includegraphics[width=.7\textwidth]{weight}
-  \caption{Mixing weights change with optical flow coherence. (from \cite{morgan_multisensory_2008})}
+  \caption{Mixing weights change with optical flow coherence. In most neurons, $w_{vis}$ increases and $w_{vest}$ decreases with coherence.(from \cite{morgan_multisensory_2008})}
   \label{fig:weight}
 \end{figure}
 
@@ -203,7 +202,7 @@ This is neuronal evidence of the ability of animals to adapt to cue reliability 
 So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we introduce two neural network models that bridge the gap between these studies.
 
 \subsection{The probabilistic population codes for Bayesian inference}
-A number of bio-inspired computational models have been established to account for SC responses and their dependence on cortical input \cite{patton_modeling_2003, alvarado_neural_2008}. These models successfully exhibit the computation underlying a single multisensory neuron. However, they fail to link the neuronal responses to behavior. A recent theory of probabilistic population codes (PPCs) showed that a population of neurons can apply Bayesian computation and achieve optimal cue integration \cite{ma_bayesian_2006}.
+A number of bio-inspired computational models have been established to account for SC responses and their dependence on cortical input \cite{patton_modeling_2003, alvarado_neural_2008}. These models have successfully showed the computational properties underlying a single multisensory neuron. However, they fail to link the neuronal responses to behavior. A recent theory of probabilistic population codes (PPCs) showed that a population of neurons can apply Bayesian computation and achieve optimal cue integration \cite{ma_bayesian_2006}.
 
 The idea of the model is that using a population of neurons, a sensory cue with Gaussian noise can be encoded by the population response and Bayesian inference can be done by simply taking the linear weighted sum of both unisensory response under certain condition (Poisson-like variability of neuron response).
 
@@ -242,8 +241,9 @@ Now we consider a multisensory integration task. $\mathbf{r}_1$ and $\mathbf{r}_
   \label{fig:infer}
 \end{figure}
 
+Further study shows that Bayesian inference can also be implemented by PPCs, when the neuron activity has Poisson-like distribution (Poisson-like variability), which is close to observations, or the prior is not flat.
 
-
+It's important to note that, PPCs gives an explanation of how neuronal responses can be interpreted to behavior. Furthermore, the behavior is consistent with the normative prediction of psychophysics.
 
 \subsection{The normalization model}
 Among all computational models of multisensory integration, the normalization model \cite{ohshiro_normalization_2011} is of particular interest. This model helps to explain several key empirical findings: the reliability-dependent combination rule in area MSTd as well as
