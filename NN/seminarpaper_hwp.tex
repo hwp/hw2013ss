@@ -37,12 +37,10 @@
 
 \maketitle
 
-\section*{Abstract}
-\TODO{abstract}
-
-%\tableofcontents
-%\pagenumbering{arabic}
-%\clearpage
+\begin{abstract}
+  Our brains have an amazing ability of integrating multi-modal senses to get better perception of the environment. During recent decade, scientists have shown an increasing interest to understanding the nature of multisensory integration. Two forms of study, psychophysical and neurophysiological, have separately achieved prolific results. However, the relation between these two studies has not been analyzed until recently. 
+  This paper reviews the canonical findings of both psychophysical and neurophysiological studies of multisensory integration. Following that, two interesting neural networks, which may potentially lead to convergence of these two forms of studies, are introduced.
+\end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
@@ -55,7 +53,7 @@ Another phenomenon is the stream/bounce illusion \cite{sekuler_sound_1997}. An e
 
 In order to explain these intriguing phenomena, researchers from a variety of disciplines try to analyze the nature of multisensory integration from different aspects. According to their methods, the studies of understanding multisensory integration are divided into two approaches -- psychophysical approach and neurophysiological approach.
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering \inputTikZ{flow}
   \caption{The procedure of multisensory perception and the analysis levels of different study.}
   \label{fig:flow}
@@ -105,7 +103,7 @@ If one assumes independent Gaussian noise, that is Gaussian distribution of the 
 \end{equation}
 This product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively.
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering \inputTikZ{bayes}
   \caption{Example of standard linear ideal observer model.}
   \label{fig:bayes}
@@ -116,7 +114,7 @@ Figure \ref{fig:bayes} is an illustration of how the ideal observer model combin
 \subsection{Behavioral experiments}
 The linear ideal observer model combines sensory cues in a statistically optimal fashion. Surprisingly, a number of psychophysical experiments have shown that humans process multisensory cues in an analogous way. These experiments examined human visual-haptic integration \cite{ernst_humans_2002} and audio-visual integration \cite{alais_ventriloquist_2004}.
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=.9\textwidth]{fetsch-visaudloc}
   \caption{Behavioral experiments of visual and auditory localization task. (from \cite{fetsch_bridging_2013})}
@@ -158,7 +156,7 @@ Although the aforementioned classical empirical principles summarize the key pro
 
 The medial superior temporal area (MSTd) is believed to be involved in visual-vestibular interaction for perceiving self-motion (heading). Different from previous studies, Morgan \etal has probed a broad range of stimulus space and recorded responses in this area \cite{morgan_multisensory_2008}. The data are sufficient enough for them to characterize the mathematical properties of the multisensory combining rule.
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering
   \includegraphics[scale=.6]{apparatus}
   \caption{Apparatus used to study visual-vestibular cue integration. (from \cite{fetsch_visualvestibular_2010})}
@@ -170,7 +168,7 @@ This platform can translate in any horizontal direction to invoke the vestibular
 
 During the experiment, a variety of conditions are tested. Conditions include presenting visual cue alone in 8 directions, vestibular cue alone in 8 directions and 64 ($8 \times 8$) combinations of cues, both congruent and conflicting. The optical flow coherence (visual cue reliability) is manipulated in $100\%$, $50\%$ and $25\%$. Responses of one of the MSTd cells is shown in Figure \ref{fig:coherence}.
 
-\begin{figure}[btph]
+\begin{figure}[btp]
   \centering
   \includegraphics[width=\textwidth]{coherence}
   \caption{Responses of a MSTd cell to multisensory stimulus. Curves along bottom and left margin show the responses when visual and vestibular inputs present alone. The color contour plots show the multisensory response. The visual dominance of heading perception is weakened as optical flow coherence decrease. (from \cite{morgan_multisensory_2008})}
@@ -188,7 +186,7 @@ In contrast to classical study in SC, which emphasizes superadditivity \cite{mer
 Another interesting finding is that the mixing weights, $w_{vest}$ and $w_{vis}$, depend on the cue reliability (Figure \ref{fig:weight}), which is analogous to psychophysical study of optimal cue integration.
 This is neuronal evidence of the ability of animals to adapt to cue reliability changes .
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=.7\textwidth]{weight}
   \caption{Mixing weights change with optical flow coherence. In most neurons, $w_{vis}$ increases and $w_{vest}$ decreases with coherence.(from \cite{morgan_multisensory_2008})}
@@ -218,7 +216,7 @@ where $f_i$ is the tuning curve of the $i$-th neuron. The tuning curves have the
 \end{equation}
 With this equation, we know, when the stimulus is $s$, what the population activity $\mathbf{r}$ might be. However, actually the observer knows little about $s$. What we are interested in is how to decode $s$ from $\mathbf{r}$.
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=.8\textwidth]{decoder}
   \caption{The mean and variance can be decoded using Bayesian decoder. (from \cite{ma_bayesian_2006})}
@@ -234,7 +232,7 @@ Here we assume a flat prior. The best mean of the posterior distribution can be 
 
 Now we consider a multisensory integration task. $\mathbf{r}_1$ and $\mathbf{r}_2$ encode the input sensory cue $(c_1, \sigma_1)$ and $(c_1, \sigma_2)$ respectively. These two population has the same tuning curve profile for individual cell, that is the means of $r_{1i}$ and $r_{2i}$ are both proportional to $f_i(s)$. Simply add up the two population activities, we can get a third population activity, $\mathbf{r}_3 = \mathbf{r}_1 + \mathbf{r}_2$, that encodes the posterior distribution in condition of both cues, \eg $p(s|\mathbf{r}_3) = p(s|\mathbf{r}_1,\mathbf{r}_2)$. By decoding $\mathbf{r}_3$, we can derive the optimal estimate of combined cue and the gain is consistent with Equation \ref{eq:optrel} (Figure \ref{fig:infer}).
 
-\begin{figure}[tpbh]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{infer}
   \caption{Bayesian inference using probabilistic population codes. (from \cite{ma_bayesian_2006})}
