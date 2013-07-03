@@ -30,7 +30,7 @@
 \newcommand{\eg}{\textit{e.g. }}
 
 
-\title{Multi-Sensory Integration : Theories, Empirical Observations and Models}
+\title{Multi-Sensory Integration : Theories, Observations and Neural Implementation}
 \author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de}}
 
 \begin{document}
@@ -39,7 +39,7 @@
 
 \begin{abstract}
   Our brains have an amazing ability of integrating multi-modal senses to get better perception of the environment. During recent decade, scientists have shown an increasing interest to understanding the nature of multisensory integration. Two forms of study, psychophysical and neurophysiological, have separately achieved prolific results. However, the relation between these two studies has not been analyzed until recently. 
-  This paper reviews the canonical findings of both psychophysical and neurophysiological studies of multisensory integration. Following that, two interesting neural networks, which may potentially lead to convergence of these two forms of studies, are introduced.
+  This paper reviews the canonical findings of both psychophysical and neurophysiological studies of multisensory integration. Following that, two interesting neural networks, which may potentially lead to convergence of these two forms of studies, are presented.
 \end{abstract}
 
 \section{Introduction}
@@ -55,7 +55,7 @@ In order to explain these intriguing phenomena, researchers from a variety of di
 
 \begin{figure}[tpb]
   \centering \inputTikZ{flow}
-  \caption{The procedure of multisensory perception and the analysis levels of different study.}
+  \caption{The procedure of multisensory perception and the analysis levels of different studies.}
   \label{fig:flow}
 \end{figure}
 
@@ -71,7 +71,7 @@ Additional to difference in analysis levels, these two approaches also differ in
 As both approaches have significant achievements, it is particularly interesting to study how these approaches relate to each other. The following questions have been raised (as depicted as a question mark in Figure \ref{fig:flow}): \emph{How are the neuronal responses related to behaviors? What are the computational rules of multisensory neurons? Are these rules consistent with normative predictions?} 
 % Recent studies have answered these questions \cite{fetsch_bridging_2013}.
 
-The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, two neural network models that link previous diverging studies are introduced.
+The purpose of this paper is to try to answer these questions. This paper first briefly reviews the key findings of both psychophysical and neurophysiological studies of multisensory integration. Afterwards, two neural network models that link previous diverging studies are presented.
 
 \section{Theories and psychophysics of multisensory integration}
 As was pointed out in the introduction to this paper, psychophysical study of multisensory integration involves theoretical deduction and behavioral observation.
@@ -123,7 +123,7 @@ The linear ideal observer model combines sensory cues in a statistically optimal
 
 One of the experiments \cite{alais_ventriloquist_2004} carried out simple spatial localization tasks, in which subjects were given visual and auditory stimuli and asked to report whether the stimuli were from left or right. Both visual and auditory stimuli were controlled in position and reliability. The result is shown in Figure \ref{fig:visaudloc}.
 
-In the first experiment (Figure \ref{fig:visaudloc}a), the two modals of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates the auditory cue.
+In the first experiment (Figure \ref{fig:visaudloc}a), the two modalities of stimuli were in conflict position, where the visual stimulus was displaced on the left. Also the visual stimulus was more reliable (depicted by smaller circle) than the auditory stimulus. With the midpoint of the stimuli changed from left to right, the proportion of subjects choosing right increased from 0 to 1. As shown in the figure, the point of subjective equality (PSE), where subjects have equal tendency of left and right, is smaller than 0. This indicates that the visual cue, which is more reliable, dominates the auditory cue.
 
 In the second experiment (Figure \ref{fig:visaudloc}b), after changing the reliability of the visual stimulus to less than that of the auditory stimulus, the PSE shifted to larger than 0. This also indicates that the more reliable cue is given higher weight, which is in accord with Equation \ref{eq:optweight}.
 
@@ -197,7 +197,7 @@ This is neuronal evidence of the ability of animals to adapt to cue reliability 
 %Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
 
 \section{Neural network models}
-So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we introduce two neural network models that bridge the gap between these studies.
+So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we present two neural network models that bridge the gap between these studies.
 
 \subsection{The probabilistic population codes for Bayesian inference}
 A number of bio-inspired computational models have been established to account for SC responses and their dependence on cortical input \cite{patton_modeling_2003, alvarado_neural_2008}. These models have successfully showed the computational properties underlying a single multisensory neuron. However, they fail to link the neuronal responses to behavior. A recent theory of probabilistic population codes (PPCs) showed that a population of neurons can apply Bayesian computation and achieve optimal cue integration \cite{ma_bayesian_2006}.
@@ -234,7 +234,7 @@ Now we consider a multisensory integration task. $\mathbf{r}_1$ and $\mathbf{r}_
 
 \begin{figure}[tpb]
   \centering
-  \includegraphics[width=\textwidth]{infer}
+  \includegraphics[width=.8\textwidth]{infer}
   \caption{Bayesian inference using probabilistic population codes. (from \cite{ma_bayesian_2006})}
   \label{fig:infer}
 \end{figure}
@@ -244,13 +244,55 @@ Further study shows that Bayesian inference can also be implemented by PPCs, whe
 It's important to note that, PPCs gives an explanation of how neuronal responses can be interpreted to behavior. Furthermore, the behavior is consistent with the normative prediction of psychophysics.
 
 \subsection{The normalization model}
-Among all computational models of multisensory integration, the normalization model \cite{ohshiro_normalization_2011} is of particular interest. This model helps to explain several key empirical findings: the reliability-dependent combination rule in area MSTd as well as
-the empirical principles that were initially described in classic studies of the SC.
+Considering a computational model for neuronal response to multisensory stimuli, it is hard to relate the model further to behavior without taking a population of neurons into account. Thus, the normalization model \cite{ohshiro_normalization_2011} for a population of neurons is of particular interest. Surprisingly, this model also helps to explain several key empirical findings: the reliability-dependent combination rule in area MSTd as well as the empirical principles that were initially described in classic studies of the SC.
 
-\TODO{details of normalization model.}
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=.8\textwidth]{normalize}
+  \caption{Schematic illustration of the normalization model. (from \cite{ohshiro_normalization_2011})}
+  \label{fig:normalize}
+\end{figure}
+
+As shown in Figure \ref{fig:normalize}a, this neural network model has a similar structure as in the two middle levels in Figure \ref{fig:flow}. It consist of two unimodal layers and a multisensory layer. These layers are topographically aligned, which means each multisensory neuron is connected by a pair of unisensory neurons with spatially overlapping receptive fields. The calculation of multisensory output is in two steps (Figure \ref{fig:normalize}). First, each multisensory neuron take the linear weighted sum of unisensory inputs:
+\begin{equation}
+  E = d_1 I_1(s) + d_1 I_2(s)
+  \label{eq:step1}
+\end{equation}
+where $d_1$ and $d_2$ are termed modality dominance weights. $I_1(s)$ and $I_2(s)$ are the unisensory inputs of stimulus $s$. The second step is normalizing the linear weighted sum over the whole population activity. The final response of a single neuron is
+\begin{equation}
+  R = \frac{E^n}{\alpha^n+\frac{1}{N}\sum_{j=1}^N E_j^n}
+  \label{eq:step2}
+\end{equation}
+Here the divisive normalization is found commonly existed in many brain areas \cite{carandini_normalization_2012}.
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=.6\textwidth]{inverse}
+  \caption{The normalization model accounts for the principle of the ``inverse effectiveness''. (from \cite{ohshiro_normalization_2011})}
+  \label{fig:inverse}
+\end{figure}
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=\textwidth]{spatial}
+  \caption{The normalization model accounts for the ``spatial principle''. (from \cite{ohshiro_normalization_2011})}
+  \label{fig:spatial}
+\end{figure}
+
+Simulation of the network shows that it can accounts for the principle of the ``inverse effectiveness'' (Figure \ref{fig:inverse}) and the ``spatial principle'' (Figure \ref{fig:spatial}). 
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=.8\textwidth]{normweight}
+  \caption{The normalization model accounts for the linear combination rule which depends on cue reliability. (from \cite{ohshiro_normalization_2011})}
+  \label{fig:normweight}
+\end{figure}
+
+Notably, the response of the normalization model is also consistent with the linear combination rule predicted in the MSTd area (Equation \ref{eq:lincomb}). The simulation is shown in Figure \ref{fig:normweight}.
 
 \section{Discussion}
-\TODO{summarize current achievement; discuss how these studies can give insight to develop more practical models (artificial systems ?)}
+
+\TODO{summarize current achievements; state the existing conflicts of the two models, but a potential combination of them will be interesting; the value of understanding biological system.}
 
 \addcontentsline{toc}{section}{References}
 \bibliography{bib}
