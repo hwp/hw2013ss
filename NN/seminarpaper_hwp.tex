@@ -12,23 +12,22 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows, shapes, fit, decorations.markings}
 
-\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position
-   1 with {\arrow[semithick]{open triangle 60}}},
-   double distance=1.4pt, shorten >= 5.5pt,
-   preaction = {decorate},
-   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
-\tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
-
-\newcommand{\inputTikZ}[1]{%
-  \input{data/#1.tikz}%
-}
+\makeatletter
+  \def\inputTikZ{\@ifnextchar[{\@with}{\@without}}
+  \def\@with[#1]#2{
+    \begingroup
+      \tikzset{every picture/.style={scale=#1}}
+      \input{data/#2.tikz}
+    \endgroup
+  }
+  \def\@without#1{\input{data/#1.tikz}}
+\makeatother
 
 \newcommand{\TODO}[1]{\emph{\small{{\bf TODO: } #1}}}
 
 \newcommand{\etal}{\textit{et al. }}
 \newcommand{\etc}{\textit{etc. }}
 \newcommand{\eg}{\textit{e.g. }}
-
 
 \title{Multi-Sensory Integration : Theories, Observations and Neural Implementation}
 \author{Weipeng He \\ \texttt{2he@informatik.uni-hamburg.de}}

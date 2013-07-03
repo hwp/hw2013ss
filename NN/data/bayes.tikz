@@ -12,5 +12,4 @@
 \draw[dashed] (axis cs:0,0) -- (axis cs:0,1) node[above] {$\hat{S}_{opt}$};
 \end{axis}
 
- 
 \end{tikzpicture}
