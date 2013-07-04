@@ -89,8 +89,302 @@
   \end{center}
   \begin{itemize}
     \item Psychophysics versus Neurophysiology.
-    \item (Behavioral) versus (Neuronal).
+    \item Behavioral versus Neuronal.
     \item What can be done in the missing part?
+  \end{itemize}
+\end{frame}
+
+\section{Psychophysics of multisensory integration}
+
+\begin{frame}
+  \frametitle{Psychophysics of multisensory integration}
+  \begin{itemize}
+    \item Study the relationship between multisensory stimuli and behavior response.
+
+    ~
+    \item Driven by statistical normative study, \eg optimal cue integration.
+    \item A solution is called ideal observer model.
+
+    ~
+    \item Psychophysical experiments are used for observation. 
+    \item Human (as well as other animals) multisensory perception is indeed statistically optimal.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear model for maximum reliability}
+  \begin{itemize}
+    \item What is ``optimal''?
+    \begin{itemize}
+      \item Minimize uncertainty;
+      \item \eg Maximize reliability (gain).
+    \end{itemize}
+
+    ~
+    \item The best estimate is:
+\begin{gather}
+  \hat{S}_{opt} = \sum_{i=1}^{n} w_i \hat{S}_i \label{eq:optest} \\
+  w_i = \frac{g_i}{\sum_{i=1}^{n} g_i}, \quad g_i = \frac{1}{\sigma_i^2} \label{eq:optweight}
+\end{gather}
+    \item where $\hat{S}_i, i=1 \dots n$ are the input cues, $\sigma_i$ are their variance.
+    \item The gain of optimal estimate:
+\begin{equation}
+  g_{opt} = \sum_{i=1}^{n} g_i \label{eq:optrel}
+\end{equation}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bayesian inference}
+  \begin{itemize}
+    \item The posterior probability
+\begin{equation}
+  p(s|c_1,c_2) = \frac{p(c_1,c_2|s)p(s)}{p(c_1,c_2)}
+\end{equation}
+    \item With a flat prior
+\begin{equation} \label{eq:post}
+  p(s|c_1,c_2) \propto p(c_1|s)p(c_2|s)
+\end{equation}
+    \item With Gaussian noise, this product is also a Gaussian of which the mean and inverse of variance are consistent to Equation \ref{eq:optest} and \ref{eq:optrel} respectively. 
+  \end{itemize}
+  
+  \begin{center}
+    \inputTikZ[.7]{bayes}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Behavioral experiments}
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{visaudloc1}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Behavioral experiments}
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{visaudloc2}
+  \end{center}
+  \begin{itemize}
+    \item These results show that humans perform near-optimally in multisensory perception.
+  \end{itemize}
+\end{frame}
+
+\section{Neurophysiology of multisensory integration}
+
+\begin{frame}
+  \frametitle{Neurophysiology of multisensory integration}
+  \begin{itemize}
+    \item Study the relationship between multisensory stimuli and neuronal response.
+
+    ~
+    \item Brain areas involved in multisensory integration:
+    \begin{itemize}
+      \item Superior colliculus (SC);
+      \item Cortex (posterior parietal area and superior temporal area).
+    \end{itemize}
+
+    ~
+    \item Two groups of influential work:
+    \begin{itemize}
+      \item Classical studies in cat superior colliculus (SC) -- empirical principles;
+      \item Vision-vestibular integration in primate dorsal medial superior temporal area (MSTd) -- mathematical combination rule.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SC and empirical principles}
+  \begin{itemize}
+    \item SC is perfect for multisensory study:
+    \begin{itemize}
+      \item Receives low-level input of visual, auditory and somatosensory inputs.
+    \end{itemize}
+
+    ~
+    \item Empirical principles:
+    \item ``Inverse effectiveness''
+    \begin{itemize}
+      \item Enhancement is salient for weak stimuli, while becomes less effective for strong stimuli.
+    \end{itemize}
+    \item ``Spatial/temporal principle''
+    \begin{itemize}
+      \item Enhancement is only robust for spatially congruent and temporally synchronous stimuli.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Area MSTd and combination rule}
+  \begin{itemize}
+    \item Visual-vestibular integration for heading perception.
+    \item Broad stimulus space is probed.
+
+    ~
+    \item A combination rule of  linear weighted sum:
+\begin{equation}
+  R_{comb}(\phi_{vest}, \phi_{vis}) = w_{vest} R_{vest}(\phi_{vest}) + w_{vis} R_{vis}(\phi_{vis}) + C 
+  \label{eq:lincomb}
+\end{equation}
+  \end{itemize}
+  \begin{center}
+    \includegraphics[scale=.4]{apparatus}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mixing weight depends on cue reliability}
+  \begin{center}
+    \includegraphics[width=\textwidth]{coherence}
+
+    \includegraphics[width=.7\textwidth]{weight}
+  \end{center}
+\end{frame}
+
+\section{Neural network models}
+
+\begin{frame}
+  \frametitle{Neural network models}
+  \begin{itemize}
+    \item Three seemingly isolated studies:
+    \begin{itemize}
+      \item The psychophysical study of optimal cue integration;
+      \item The classical empirical principles of multisensory integration in SC;
+      \item The recent neurophysiological findings in MSTd area.
+    \end{itemize}
+
+    ~
+    \item Two neural network model bridge the gaps:
+    \begin{itemize}
+      \item The probabilistic population codes for Bayesian inference;
+      \item The normalization model.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probabilistic population codes (PPCs)}
+  \begin{itemize}
+    \item A population response activity encodes a Gaussian distribution.
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{decoder}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probabilistic population codes (PPCs)}
+  \begin{itemize}
+    \item Poisson variability of neuronal response:
+\begin{equation}
+  p(\mathbf{r}|s) = \prod_{i} p(r_i|s) = \prod_{i} \frac{e^{-f_i(s)} f_i(s)^{r_i}}{r_i!}
+  \label{eq:popvar}
+\end{equation}
+    \item Consider a multisensory integration task:
+    \begin{itemize}
+      \item $\mathbf{r}_1$ and $\mathbf{r}_2$ encode the input sensory cues;
+      \item Each neuron are aligned with same tuning curve profile.
+    \end{itemize}
+    \item Bayesian inference can be calculated via sum of the two populations.
+    \begin{equation} \mathbf{r}_3 = \mathbf{r}_1 + \mathbf{r}_2 \end{equation}
+    \item We can show that
+    \begin{equation} p(s|\mathbf{r}_3) = p(s|\mathbf{r}_1,\mathbf{r}_2) \end{equation}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probabilistic population codes (PPCs)}
+  \begin{itemize}
+    \item Bayesian inference using probabilistic population codes.
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{infer}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probabilistic population codes (PPCs)}
+  \begin{itemize}
+    \item PPCs also works with general assumptions (Poisson-like variability, non-flat prior)
+
+    ~
+    \item PPCs links neuronal responses to behavior.
+    \item It shows a possible case how brain can perform Bayesian computation.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The normalization model}
+  \begin{itemize}
+    \item A computational model at a network level.
+    \item Accounts for both empirical principles and reliability-dependent combination rule.
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{normalize}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The normalization model}
+  \begin{itemize}
+    \item Weighted sum of unisensory inputs
+\begin{equation}
+  E = d_1 I_1(s) + d_1 I_2(s)
+  \label{eq:step1}
+\end{equation}
+    where each multisensory neuron has different dominance weights ($d_1$ and $d_2$).
+    \item Normalizing over the whole population activity.
+\begin{equation}
+  R = \frac{E^n}{\alpha^n+\frac{1}{N}\sum_{j=1}^N E_j^n}
+  \label{eq:step2}
+\end{equation}
+    \item Normalization commonly exists in many brain areas.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The normalization model accounts for the principle of the ``inverse effectiveness''}
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{inverse2}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The normalization model accounts for the ``spatial principle''}
+  \begin{center}
+    \includegraphics[width=\textwidth]{spatial}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The normalization model accounts for reliability-dependent combination rule}
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{normweight}
+  \end{center}
+\end{frame}
+
+\section{Discussion}
+\begin{frame}
+  \frametitle{Discussion}
+  \begin{itemize}
+    \item Psychophysical study
+    \begin{itemize}
+      \item Behavioral observation matches normative prediction.
+    \end{itemize}
+    \item Neurophysiological study
+    \begin{itemize}
+      \item Empirical principles describe the properties of multisensory neuron.
+      \item Reliability-dependent linear combination rule describes the underlying computational mechanism.
+    \end{itemize}
+    \item Two neural network models:
+    \begin{itemize}
+      \item PPCs links neuronal response to behavior.
+      \item The normalization model is at network level and unifies neurophysiological findings.
+    \end{itemize}
+
+    ~
+    \item A potential combination of these models will be interesting.
   \end{itemize}
 \end{frame}
 
@@ -98,6 +392,8 @@
   \frametitle{The end}
   \begin{center}
     \Huge{Thank you!}
+
+    ~
 
     \Huge{Questions?}
   \end{center}
