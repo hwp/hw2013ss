@@ -63,7 +63,7 @@ Figure \ref{fig:flow}a is an illustration of how multisensory perception is proc
 
 As depicted in Figure \ref{fig:flow}b, the psychophysical study of multisensory integration analyzes the behavioral responses to multisensory input. Usually, in psychophysical experiments, human subjects are given sensory input and asked to do discrimination tasks. The behavior of subjects are observed. An example of this is the psychophysical study of the ventriloquist effect, in which the human localization of different visual and auditory input is tested \cite{alais_ventriloquist_2004}.
 
-Whereas the psychophysical study ignores the intermediate neural precesses in brain areas, the neurophysiological study investigate the neural basis of multisensory integration (see Figure \ref{fig:flow}c). Techniques, like neuron recording and brain imaging, are used to observe the neuronal responses (firing rate) of multisensory neurons.
+Whereas the psychophysical study ignores the intermediate neural processes in brain areas, the neurophysiological study investigate the neural basis of multisensory integration (see Figure \ref{fig:flow}c). Techniques, like neuron recording and brain imaging, are used to observe the neuronal responses (firing rate) of multisensory neurons.
 
 Also different from neurophysiological study, a part of the psychophysical study is initiated by theoretical research. At first, a theory of what mathematical model is optimal (normative prediction) is studied. Then, behaviors observed are compared to the normative prediction. On the contrary, the neurophysiological study first measures the neuronal responses in related brain areas and corresponding computational models are proposed next. A number of empirical principles are established according to the physiological observations \cite{stein_merging_1993, stanford_evaluating_2005}.
 
@@ -82,7 +82,7 @@ These theoretical works are further proofed by psychophysical observations, whic
 \subsection{Linear Model for Maximum Reliability}
 A simple linear ideal observer model is successful in predicting the optimal estimate under certain assumptions. This model is one of the standard models for testing multisensory behavior \cite{landy_ideal-observer_2011}.
 
-The set-up of the model is that, the system get multiple source cues ($\hat{S}_i, i=1 \dots n$) with different reliability ($g_i$), which is decided by the variance($\sigma_i$), as input. Then the best estimate ($\hat{S}_{opt}$) is given by the weighted sum of all cues, where the weights ($w_i$) are proportional to the reliability of the corresponding cues:
+The set-up of the model is that, the system gets multiple source cues ($\hat{S}_i, i=1 \dots n$) with different reliability ($g_i$), which is decided by the variance($\sigma_i$), as input. Then the best estimate ($\hat{S}_{opt}$) is given by the weighted sum of all cues, where the weights ($w_i$) are proportional to the reliability of the corresponding cues:
 \begin{gather}
   \hat{S}_{opt} = \sum_{i=1}^{n} w_i \hat{S}_i \label{eq:optest} \\
   w_i = \frac{g_i}{\sum_{i=1}^{n} g_i}, \quad g_i = \frac{1}{\sigma_i^2} \label{eq:optweight}
@@ -153,7 +153,7 @@ Researchers also have found out the robust enhancement of multisensory response 
 \subsection{Multisensory Integration in Area MSTd}
 Although the aforementioned classical empirical principles summarize the key properties of multisensory response, these properties are not described quantitatively. The mathematical combination rule employed by multisensory neurons remains to be found. A comprehensive research on visual-vestibular integration in primate MSTd area has derived a linear combination rule, which closely matches the observation \cite{morgan_multisensory_2008}.
 
-The medial superior temporal area (MSTd) is believed to be involved in visual-vestibular interaction for perceiving self-motion (heading). Different from previous studies, Morgan \etal has probed a broad range of stimulus space and recorded responses in this area \cite{morgan_multisensory_2008}. The data are sufficient enough for them to characterize the mathematical properties of the multisensory combining rule.
+The medial superior temporal area (MSTd) is believed to be involved in visual-vestibular interaction for perceiving self-motion (heading). Different from previous studies, Morgan \etal has probed a broad range of stimulus space and recorded responses in this area \cite{morgan_multisensory_2008}. The data are sufficient for them to characterize the mathematical properties of the multisensory combining rule.
 
 \begin{figure}[tpb]
   \centering
@@ -162,10 +162,10 @@ The medial superior temporal area (MSTd) is believed to be involved in visual-ve
   \label{fig:apparatus}
 \end{figure}
 
-An ``virtual reality'' motion platform (Figure \ref{fig:apparatus}) is used to control the visual and vestibular stimuli of the study. 
+A ``virtual reality'' motion platform (Figure \ref{fig:apparatus}) is used to control the visual and vestibular stimuli of the study. 
 This platform can translate in any horizontal direction to invoke the vestibular stimulus of the monkey seated in the apparatus. Meanwhile, the monkey looks at the moving particles (optical flow) in the screen and receives the visual stimulus of self-motion. The optical flow is controlled to vary in direction and coherence.
 
-During the experiment, a variety of conditions are tested. Conditions include presenting visual cue alone in 8 directions, vestibular cue alone in 8 directions and 64 ($8 \times 8$) combinations of cues, both congruent and conflicting. The optical flow coherence (visual cue reliability) is manipulated in $100\%$, $50\%$ and $25\%$. Responses of one of the MSTd cells is shown in Figure \ref{fig:coherence}.
+During the experiment, a variety of conditions are tested. Conditions include presenting visual cue alone in eight directions, vestibular cue alone in eight directions and 64 ($8 \times 8$) combinations of cues, both congruent and conflicting. The optical flow coherence (visual cue reliability) is manipulated in $100\%$, $50\%$ and $25\%$. Responses of one of the MSTd cells is shown in Figure \ref{fig:coherence}.
 
 \begin{figure}[btp]
   \centering
@@ -174,7 +174,7 @@ During the experiment, a variety of conditions are tested. Conditions include pr
   \label{fig:coherence}
 \end{figure}
 
-Morgan \etal tried to address an arithmetic expression that describes the response to multisensory stimulus combinations ($R_{comb}$) as a function of the responses to vestibular and visual stimuli ($R_{vest}$ and $R_{vis}$, respectively) presented separately. A linear combination rule is found to closely match the observed data:
+Morgan \etal tried to address an arithmetic expression that describes the response to multisensory stimulus combinations ($R_{comb}$) as a function of the responses to vestibular and visual stimuli ($R_{vest}$ and $R_{vis}$, respectively) presented separately. A linear combination rule is found to match closely the observed data:
 \begin{equation}
   R_{comb}(\phi_{vest}, \phi_{vis}) = w_{vest} R_{vest}(\phi_{vest}) + w_{vis} R_{vis}(\phi_{vis}) + C 
   \label{eq:lincomb}
@@ -196,7 +196,7 @@ This is neuronal evidence of the ability of animals to adapt to cue reliability 
 %Besides understanding the usage of multisensory integration, plentiful of researches are into knowing how multisensory integration is acquired. 
 
 \section{Neural Network Models}
-So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we present two neural network models that bridge the gap between these studies.
+So far, we have mentioned three seemingly isolated studies of multisensory integration -- the psychophysical study of optimal cue integration, the classical empirical principles of multisensory integration in SC and the recent neurophysiological findings in MSTd area. Now, we present two neural network models that bridge the gaps among these studies.
 
 \subsection{The Probabilistic Population Codes for Bayesian Inference}
 A number of bio-inspired computational models have been established to account for SC responses and their dependence on cortical input \cite{patton_modeling_2003, alvarado_neural_2008}. These models have successfully showed the computational properties underlying a single multisensory neuron. However, they fail to link the neuronal responses to behavior. A recent theory of probabilistic population codes (PPCs) showed that a population of neurons can apply Bayesian computation and achieve optimal cue integration \cite{ma_bayesian_2006}.
@@ -252,7 +252,7 @@ Considering a computational model for neuronal response to multisensory stimuli,
   \label{fig:normalize}
 \end{figure}
 
-As shown in Figure \ref{fig:normalize}a, this neural network model has a similar structure as in the two middle levels in Figure \ref{fig:flow}. It consist of two unimodal layers and a multisensory layer. These layers are topographically aligned, which means each multisensory neuron is connected by a pair of unisensory neurons with spatially overlapping receptive fields. The calculation of multisensory output is in two steps (Figure \ref{fig:normalize}). First, each multisensory neuron take the linear weighted sum of unisensory inputs:
+As shown in Figure \ref{fig:normalize}a, this neural network model has a similar structure as in the two middle levels in Figure \ref{fig:flow}. It consists of two unimodal layers and a multisensory layer. These layers are topographically aligned, which means each multisensory neuron is connected by a pair of unisensory neurons with spatially overlapping receptive fields. The calculation of multisensory output is in two steps (Figure \ref{fig:normalize}). First, each multisensory neuron take the linear weighted sum of unisensory inputs:
 \begin{equation}
   E = d_1 I_1(s) + d_1 I_2(s)
   \label{eq:step1}
@@ -303,7 +303,7 @@ We also reviewed two groups of influential work in the neurophysiological study 
 
 At the end, two neural network models are reviewed. The PPCs is the first model that links neuronal response to behavior. The normalization model is at network level and unifies the neurophysiological findings.
 
-Different from other work, both models describes a biological plausible computation method. In other words, Poisson-like variability and normalization operation are both commonly found in brain areas.
+Different from other work, both models describe a biological plausible computation method. In other words, Poisson-like variability and normalization operation are both commonly found in brain areas.
 
 Interestingly, these two models focus on accounting for different observations, and a potential combination of these models will be favorable. However, there are still conflicts between these models. PPCs assumes the combination weights are fixed. On the contrary, the mixing weights in the normalization model may vary with the cue reliability. Also, the output of the normalization model cannot be used directly by the PPCs as the latter requires the input to be encoded naturally. Further study is required to resolved the conflicting findings.
 
